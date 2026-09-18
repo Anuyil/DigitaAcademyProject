@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Albo Sicuro{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { DEFAULT: '#1e40af', light: '#3b82f6', dark: '#1e3a8a' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .badge-conforme     { @apply bg-emerald-100 text-emerald-800 ring-1 ring-emerald-300; }
+    .badge-non_conforme { @apply bg-red-100 text-red-800 ring-1 ring-red-300; }
+    .badge-da_verificare{ @apply bg-amber-100 text-amber-800 ring-1 ring-amber-300; }
+  </style>
+</head>
+<body class="h-full">
+
+<!-- Navbar -->
+<nav class="bg-brand shadow-sm">
+  <div class="max-w-screen-xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
+    <a href="/" class="flex items-center gap-2 text-white font-semibold text-lg tracking-tight">
+      <svg class="w-5 h-5 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02
+             12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622
+             0-1.042-.133-2.052-.382-3.016z"/>
+      </svg>
+      Albo Sicuro
+    </a>
+    <div class="flex items-center gap-4">
+      <a href="/" class="text-blue-200 hover:text-white text-sm font-medium transition-colors">Dashboard</a>
+      <a href="/upload"
+         class="bg-white text-brand font-semibold text-sm px-4 py-1.5 rounded-full hover:bg-blue-50 transition-colors">
+        ↑ Carica PDF
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- Content -->
+<main class="max-w-screen-xl mx-auto px-4 sm:px-6 py-8">
+  {% block content %}{% endblock %}
+</main>
+
+{% block scripts %}{% endblock %}
+</body>
+</html>

@@ -217,6 +217,61 @@ def get_recent_events(limit: int = 50) -> list[dict]:
         return [dict(r) for r in rows]
 
 
+# ── query per la web app ─────────────────────────────────────────────────────
+
+def get_all_documents() -> list[dict]:
+    """Tutti i documenti con il report più recente — per la dashboard."""
+    with _connect() as conn:
+        rows = conn.execute(
+            """SELECT d.*, r.verdetto, r.gravita_max, r.findings_json,
+                      r.precedente_json, r.pdf_corretto_path,
+                      r.created_at AS analizzato_at, r.expires_at, r.id AS report_id
+               FROM documents d
+               LEFT JOIN reports r ON r.id = (
+                   SELECT id FROM reports WHERE document_id=d.id ORDER BY id DESC LIMIT 1
+               )
+               ORDER BY d.id DESC"""
+        ).fetchall()
+        return [dict(r) for r in rows]
+
+
+def get_document_with_report(doc_id: int) -> dict | None:
+    """Documento + report più recente — per la pagina dettaglio."""
+    with _connect() as conn:
+        row = conn.execute(
+            """SELECT d.*, r.verdetto, r.gravita_max, r.findings_json,
+                      r.precedente_json, r.pdf_corretto_path,
+                      r.created_at AS analizzato_at, r.expires_at, r.id AS report_id
+               FROM documents d
+               LEFT JOIN reports r ON r.id = (
+                   SELECT id FROM reports WHERE document_id=d.id ORDER BY id DESC LIMIT 1
+               )
+               WHERE d.id=?""",
+            (doc_id,)
+        ).fetchone()
+        return dict(row) if row else None
+
+
+def get_stats() -> dict:
+    """Conteggi per la dashboard."""
+    with _connect() as conn:
+        total = conn.execute("SELECT COUNT(*) FROM documents").fetchone()[0]
+        rows = conn.execute(
+            """SELECT r.verdetto, COUNT(*) n
+               FROM reports r
+               JOIN (SELECT document_id, MAX(id) id FROM reports GROUP BY document_id) latest
+               ON r.id = latest.id
+               GROUP BY r.verdetto"""
+        ).fetchall()
+        counts = {r["verdetto"]: r["n"] for r in rows}
+        return {
+            "totale":        total,
+            "conformi":      counts.get("conforme", 0),
+            "non_conformi":  counts.get("non_conforme", 0),
+            "da_verificare": counts.get("da_verificare", 0),
+        }
+
+
 # ── smoke test ───────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":

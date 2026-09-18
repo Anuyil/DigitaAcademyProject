@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% block title %}Carica PDF — Albo Sicuro{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto">
+
+  <div class="mb-6">
+    <a href="/" class="text-sm text-slate-500 hover:text-brand transition-colors">← Dashboard</a>
+    <h1 class="text-2xl font-bold text-slate-800 mt-2">Verifica preventiva PDF</h1>
+    <p class="text-slate-500 text-sm mt-1">
+      Carica un atto prima di pubblicarlo. L'analisi richiede circa 10-20 secondi.
+    </p>
+  </div>
+
+  {% if error %}
+  <div class="mb-6 bg-red-50 ring-1 ring-red-200 rounded-xl px-5 py-4 text-red-700 text-sm">
+    {{ error }}
+  </div>
+  {% endif %}
+
+  <form id="upload-form" method="post" action="/upload" enctype="multipart/form-data">
+    <!-- Drop zone -->
+    <div id="drop-zone"
+         class="relative border-2 border-dashed border-slate-300 rounded-2xl p-12 text-center
+                hover:border-brand hover:bg-blue-50/30 transition-all cursor-pointer mb-6 bg-white">
+      <input type="file" name="file" id="file-input" accept=".pdf"
+             class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" required>
+      <div id="drop-content">
+        <svg class="w-10 h-10 mx-auto text-slate-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+            d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+        </svg>
+        <p class="text-slate-600 font-medium">Trascina il PDF qui</p>
+        <p class="text-slate-400 text-sm mt-1">oppure clicca per scegliere</p>
+        <p class="text-slate-300 text-xs mt-3">Solo file .pdf</p>
+      </div>
+      <div id="file-selected" class="hidden">
+        <svg class="w-8 h-8 mx-auto text-brand mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <p id="file-name" class="text-slate-700 font-medium text-sm"></p>
+        <p class="text-slate-400 text-xs mt-1">Clicca per cambiare file</p>
+      </div>
+    </div>
+
+    <!-- Titolo -->
+    <div class="mb-6 bg-white rounded-xl ring-1 ring-slate-200 shadow-sm p-5">
+      <label class="block text-sm font-medium text-slate-700 mb-2">
+        Titolo del documento <span class="text-slate-400 font-normal">(opzionale)</span>
+      </label>
+      <input type="text" name="titolo" placeholder="es. Delibera di Giunta n. 45/2026"
+             class="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-700
+                    focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent
+                    placeholder:text-slate-300">
+    </div>
+
+    <!-- Submit -->
+    <button type="submit" id="submit-btn"
+            class="w-full bg-brand hover:bg-brand-dark text-white font-semibold py-3 rounded-xl
+                   transition-colors flex items-center justify-center gap-2">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2
+             M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+      </svg>
+      Analizza PDF
+    </button>
+  </form>
+
+  <!-- Loading overlay -->
+  <div id="loading" class="hidden mt-8 text-center">
+    <div class="inline-flex flex-col items-center gap-3 bg-white rounded-2xl shadow-sm ring-1 ring-slate-200 px-10 py-8">
+      <svg class="animate-spin w-8 h-8 text-brand" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor"
+          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0
+             3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+      <div>
+        <p class="font-semibold text-slate-700">Analisi in corso…</p>
+        <p class="text-slate-400 text-sm mt-0.5">Pseudonimizzazione → LLM → Redazione PDF</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const input    = document.getElementById('file-input');
+  const dropZone = document.getElementById('drop-zone');
+  const content  = document.getElementById('drop-content');
+  const selected = document.getElementById('file-selected');
+  const fname    = document.getElementById('file-name');
+  const form     = document.getElementById('upload-form');
+  const loading  = document.getElementById('loading');
+  const submitBtn= document.getElementById('submit-btn');
+
+  function showFile(name) {
+    content.classList.add('hidden');
+    selected.classList.remove('hidden');
+    fname.textContent = name;
+  }
+
+  input.addEventListener('change', () => {
+    if (input.files[0]) showFile(input.files[0].name);
+  });
+
+  ['dragover','dragenter'].forEach(e =>
+    dropZone.addEventListener(e, ev => { ev.preventDefault(); dropZone.classList.add('border-brand','bg-blue-50'); })
+  );
+  ['dragleave','drop'].forEach(e =>
+    dropZone.addEventListener(e, () => dropZone.classList.remove('border-brand','bg-blue-50'))
+  );
+  dropZone.addEventListener('drop', ev => {
+    ev.preventDefault();
+    if (ev.dataTransfer.files[0]) {
+      input.files = ev.dataTransfer.files;
+      showFile(ev.dataTransfer.files[0].name);
+    }
+  });
+
+  form.addEventListener('submit', () => {
+    submitBtn.disabled = true;
+    submitBtn.classList.add('opacity-60','cursor-not-allowed');
+    loading.classList.remove('hidden');
+  });
+</script>
+{% endblock %}

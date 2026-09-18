@@ -2,15 +2,9 @@
 core/pdf_utils.py — estrazione testo e redazione fisica del PDF.
 
 Redazione:
-  "rimuovere"   → testo sostituito con "OMISSIS" (rettangolo bianco + testo)
-  "minimizzare" → nomi sostituiti con iniziali (es. "M.R.")
-  "mantenere"   → nessuna modifica
-
-Strategia di ricerca (due passate):
-  1. Per ogni decisione "rimuovere"/"minimizzare": cerca il VALORE REALE
-     nel PDF (page.search_for) e oscura ogni occorrenza.
-  2. Per ogni passaggio_critico: ricostruisce il testo reale (sostituendo
-     i segnaposto con i valori veri) e oscura la frase intera se trovata.
+  Solo entità flaggate dall'LLM come "rimuovere" o "minimizzare".
+  Bande nere (fill nero, nessun testo sostitutivo).
+  Solo valori abbastanza specifici da oscurare safely nel PDF.
 """
 
 import logging
@@ -20,19 +14,7 @@ import pymupdf
 
 log = logging.getLogger(__name__)
 
-_FILL_WHITE = (1, 1, 1)
-_FILL_BLACK = (0, 0, 0)
-
-
 # ── helpers ───────────────────────────────────────────────────────────────────
-
-def _initials(name: str) -> str:
-    """Mario Rossi → M.R.  |  RSSMRA80A01F839X → R."""
-    parts = [p for p in name.strip().split() if p]
-    if not parts:
-        return "***"
-    return ".".join(p[0].upper() for p in parts) + "."
-
 
 def _deplaceholder(text: str, mapping: dict) -> str:
     """Sostituisce i segnaposto con i valori reali per la ricerca nel PDF."""
@@ -41,9 +23,9 @@ def _deplaceholder(text: str, mapping: dict) -> str:
     return text
 
 
-def _redact_value(page: pymupdf.Page, value: str, replacement: str) -> int:
+def _redact_value(page: pymupdf.Page, value: str) -> int:
     """
-    Cerca value nella pagina e aggiunge redaction annotation su ogni occorrenza.
+    Cerca value nella pagina e aggiunge una banda nera su ogni occorrenza.
     Ritorna il numero di occorrenze trovate.
     """
     found = 0
@@ -51,12 +33,8 @@ def _redact_value(page: pymupdf.Page, value: str, replacement: str) -> int:
     for rect in instances:
         page.add_redact_annot(
             rect,
-            text=replacement,
-            fontname="helv",
-            fontsize=8,
-            align=pymupdf.TEXT_ALIGN_CENTER,
-            fill=_FILL_WHITE,
-            text_color=_FILL_BLACK,
+            text=None,          # nessun testo di sostituzione
+            fill=(0, 0, 0),     # banda nera
         )
         found += 1
     return found
@@ -77,7 +55,7 @@ def redact_pdf(
     output_path: str,
     mapping: dict,
     decisioni: list,
-    passaggi_critici: list | None = None,
+    passaggi_critici: list | None = None,  # non usato (rimosso per evitare over-redaction)
 ) -> str:
     """
     Applica le decisioni dell'LLM al PDF e salva il file redatto.
@@ -94,8 +72,8 @@ def redact_pdf(
     """
     Path(output_path).parent.mkdir(parents=True, exist_ok=True)
 
-    # Costruisce mappa placeholder → (valore_reale, replacement_text)
-    redactions: list[tuple[str, str]] = []  # (valore_da_cercare, testo_sostituzione)
+    # Raccoglie i valori reali da oscurare (tutte le entità non "mantenere")
+    valori_da_oscurare: list[str] = []
 
     for dec in decisioni:
         azione = dec.get("azione", "mantenere")
@@ -105,18 +83,9 @@ def redact_pdf(
         value = mapping.get(ph, "")
         if not value:
             continue
-        replacement = "OMISSIS" if azione == "rimuovere" else _initials(value)
-        redactions.append((value, replacement))
+        valori_da_oscurare.append(value)
 
-    # Passaggi critici → cerca la frase intera ricostruita
-    frase_redactions: list[str] = []
-    for p in (passaggi_critici or []):
-        testo_ph = p.get("testo", "")
-        testo_reale = _deplaceholder(testo_ph, mapping).strip()
-        if testo_reale:
-            frase_redactions.append(testo_reale)
-
-    if not redactions and not frase_redactions:
+    if not valori_da_oscurare:
         log.info(f"Nessuna redazione necessaria per {Path(pdf_path).name}")
         return pdf_path
 
@@ -124,21 +93,14 @@ def redact_pdf(
     total = 0
 
     for page in doc:
-        # Passata 1: valori singoli (entità)
-        for value, replacement in redactions:
-            n = _redact_value(page, value, replacement)
+        # Passata 1: valori singoli (entità flaggate dall'LLM)
+        for value in valori_da_oscurare:
+            n = _redact_value(page, value)
             if n:
-                log.debug(f"  [{page.number}] '{value[:30]}' → '{replacement}' ({n}x)")
+                log.debug(f"  [{page.number}] oscurato '{value[:30]}' ({n}x)")
             total += n
 
-        # Passata 2: frasi critiche intere (OMISSIS)
-        for frase in frase_redactions:
-            n = _redact_value(page, frase, "OMISSIS")
-            if n:
-                log.debug(f"  [{page.number}] frase critica trovata e oscurata ({n}x)")
-            total += n
-
-        page.apply_redactions(images=pymupdf.PDF_REDACT_IMAGE_NONE)
+            page.apply_redactions(images=pymupdf.PDF_REDACT_IMAGE_NONE)
 
     if total > 0:
         doc.save(output_path, garbage=4, deflate=True)
@@ -174,13 +136,11 @@ if __name__ == "__main__":
         from core.detectors import mask
         print(f"  {e['placeholder']:20} {e['type']:15} {mask(e['value'])}")
 
-    # 3. Simula decisioni LLM: rimuovi CF e IBAN, minimizza persone
+    # 3. Simula decisioni LLM: rimuovi CF e IBAN, tutto il resto mantenere
     decisioni_test = []
     for e in result["entities"]:
-        if e["type"] in ("CF", "IBAN", "DATA_NASCITA", "EMAIL", "TEL"):
+        if e["type"] in ("CF", "IBAN"):
             azione = "rimuovere"
-        elif e["type"] == "PER":
-            azione = "minimizzare"
         else:
             azione = "mantenere"
         decisioni_test.append({"placeholder": e["placeholder"], "azione": azione})

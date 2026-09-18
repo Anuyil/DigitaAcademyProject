@@ -1,0 +1,256 @@
+{% extends "base.html" %}
+{% block title %}Report — {{ doc.titolo }}{% endblock %}
+
+{% block content %}
+
+<!-- Header -->
+{% set v = doc.verdetto or 'da_verificare' %}
+<div class="flex items-start justify-between mb-6">
+  <div>
+    <a href="/" class="text-sm text-slate-500 hover:text-brand transition-colors">← Dashboard</a>
+    <h1 class="text-xl font-bold text-slate-800 mt-2 leading-snug max-w-2xl">{{ doc.titolo }}</h1>
+    <div class="flex items-center gap-3 mt-2 flex-wrap">
+      <span class="inline-flex items-center gap-1.5 text-sm font-semibold px-3 py-1 rounded-full badge-{{ v }}">
+        {% if v == 'conforme' %}✓ Conforme
+        {% elif v == 'non_conforme' %}✗ Non conforme
+        {% else %}? Da verificare{% endif %}
+      </span>
+      {% if doc.gravita_max %}
+      <span class="text-sm font-medium
+        {% if doc.gravita_max == 'alta' %}text-red-600{% elif doc.gravita_max == 'media' %}text-amber-600{% else %}text-slate-500{% endif %}">
+        Gravità: {{ doc.gravita_max }}
+      </span>
+      {% endif %}
+      <span class="text-xs text-slate-400">
+        Analizzato: {{ (doc.analizzato_at or doc.created_at or '')[:16] }}
+      </span>
+      <span class="text-xs px-2 py-0.5 rounded-full
+        {% if doc.source == 'upload' %}bg-purple-100 text-purple-700{% else %}bg-blue-100 text-blue-700{% endif %}">
+        {{ doc.source }}
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- PDF viewers -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-8">
+
+  <!-- Originale -->
+  <div class="bg-white rounded-xl shadow-sm ring-1 ring-slate-200 overflow-hidden flex flex-col">
+    <div class="px-5 py-3 border-b border-slate-100 flex items-center justify-between">
+      <h2 class="font-semibold text-slate-700 text-sm">PDF Originale</h2>
+      {% if has_original %}
+      <a href="/pdf/originale/{{ doc.id }}" target="_blank"
+         class="text-xs text-slate-400 hover:text-brand transition-colors">↗ Apri</a>
+      {% endif %}
+    </div>
+    {% if has_original %}
+    <iframe src="/pdf/originale/{{ doc.id }}"
+            class="w-full flex-1" style="height: calc(100vh - 220px); min-height: 700px; border: none;"></iframe>
+    {% else %}
+    <div class="flex-1 flex items-center justify-center text-slate-400 p-8" style="height: calc(100vh - 220px); min-height: 700px;">
+      <div class="text-center">
+        <svg class="w-8 h-8 mx-auto mb-2 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+            d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+        </svg>
+        <p class="text-sm">File non disponibile</p>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- Oscurato -->
+  <div class="bg-white rounded-xl shadow-sm ring-1 ring-slate-200 overflow-hidden flex flex-col">
+    <div class="px-5 py-3 border-b border-slate-100 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <h2 class="font-semibold text-slate-700 text-sm">PDF con dati oscurati</h2>
+        <span class="text-xs bg-slate-100 text-slate-500 px-2 py-0.5 rounded-full">solo errori LLM</span>
+      </div>
+      {% if has_oscurato %}
+      <a href="/pdf/oscurato/{{ doc.id }}" target="_blank"
+         class="text-xs text-slate-400 hover:text-brand transition-colors">↗ Apri</a>
+      {% endif %}
+    </div>
+    {% if has_oscurato %}
+    <iframe src="/pdf/oscurato/{{ doc.id }}"
+            class="w-full flex-1" style="height: calc(100vh - 220px); min-height: 700px; border: none;"></iframe>
+    {% elif v == 'conforme' %}
+    <div class="flex-1 flex items-center justify-center p-8 bg-emerald-50/30" style="height: calc(100vh - 220px); min-height: 700px;">
+      <div class="text-center text-emerald-700">
+        <svg class="w-8 h-8 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <p class="text-sm font-medium">Documento conforme</p>
+        <p class="text-xs mt-1 text-emerald-600">Nessuna redazione necessaria</p>
+      </div>
+    </div>
+    {% else %}
+    <div class="flex-1 flex items-center justify-center text-slate-400 p-8" style="height: calc(100vh - 220px); min-height: 700px;">
+      <p class="text-sm text-center">PDF oscurato non disponibile</p>
+    </div>
+    {% endif %}
+  </div>
+
+</div>
+
+<!-- Report testuale -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+  <!-- Passaggi critici (2 cols) -->
+  <div class="lg:col-span-2 space-y-4">
+
+    <h2 class="font-semibold text-slate-800 text-base">Analisi dettagliata</h2>
+
+    {% if passaggi %}
+    <div class="space-y-3">
+      {% for p in passaggi %}
+      {% set g = p.gravita or 'bassa' %}
+      <div class="bg-white rounded-xl ring-1 ring-slate-200 shadow-sm p-5">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="text-xs font-semibold px-2 py-0.5 rounded-full
+            {% if g == 'alta' %}bg-red-100 text-red-700
+            {% elif g == 'media' %}bg-amber-100 text-amber-700
+            {% else %}bg-slate-100 text-slate-600{% endif %}">
+            {{ g | upper }}
+          </span>
+          <span class="text-xs text-slate-400">{{ p.categoria or '—' }}</span>
+        </div>
+        <blockquote class="text-sm text-slate-700 font-mono bg-slate-50 rounded-lg px-4 py-3 border-l-4
+          {% if g == 'alta' %}border-red-400{% elif g == 'media' %}border-amber-400{% else %}border-slate-300{% endif %}
+          leading-relaxed mb-3">
+          {{ p.testo }}
+        </blockquote>
+        {% if p.motivazione %}
+        <p class="text-xs text-slate-500">{{ p.motivazione }}</p>
+        {% endif %}
+        {% if p.norma %}
+        <p class="text-xs text-slate-400 mt-1">⚖ {{ p.norma }}</p>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="bg-emerald-50 ring-1 ring-emerald-200 rounded-xl px-5 py-6 text-center text-emerald-700">
+      <p class="font-medium text-sm">Nessun passaggio critico rilevato</p>
+      <p class="text-xs mt-1 text-emerald-600">Il documento risulta conforme alle linee guida</p>
+    </div>
+    {% endif %}
+
+    <!-- Decisioni LLM -->
+    {% if decisioni %}
+    <div>
+      <h3 class="font-semibold text-slate-700 text-sm mb-3 mt-2">Decisioni per entità</h3>
+      <div class="bg-white rounded-xl ring-1 ring-slate-200 shadow-sm overflow-hidden">
+        <table class="w-full text-xs">
+          <thead class="bg-slate-50 text-slate-500 uppercase tracking-wide">
+            <tr>
+              <th class="px-4 py-2.5 text-left">Segnaposto</th>
+              <th class="px-4 py-2.5 text-left">Azione</th>
+              <th class="px-4 py-2.5 text-left">Motivazione</th>
+              <th class="px-4 py-2.5 text-left">Norma</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            {% for d in decisioni %}
+            {% set az = d.azione or 'mantenere' %}
+            <tr class="hover:bg-slate-50">
+              <td class="px-4 py-2.5 font-mono text-slate-600">{{ d.placeholder }}</td>
+              <td class="px-4 py-2.5">
+                <span class="font-semibold
+                  {% if az == 'rimuovere' %}text-red-600
+                  {% elif az == 'minimizzare' %}text-amber-600
+                  {% else %}text-emerald-600{% endif %}">
+                  {{ az }}
+                </span>
+              </td>
+              <td class="px-4 py-2.5 text-slate-500 max-w-xs">{{ d.motivazione or '—' }}</td>
+              <td class="px-4 py-2.5 text-slate-400">{{ d.norma or '—' }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    {% endif %}
+
+  </div>
+
+  <!-- Sidebar: precedente + info -->
+  <div class="space-y-4">
+
+    {% if precedente %}
+    <div class="bg-white rounded-xl ring-1 ring-slate-200 shadow-sm p-5">
+      <h3 class="font-semibold text-slate-700 text-sm mb-3 flex items-center gap-1.5">
+        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13
+               C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477
+               14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247
+               18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+        </svg>
+        Precedente Garante
+      </h3>
+      <dl class="space-y-2 text-xs">
+        <div>
+          <dt class="text-slate-400">ID provvedimento</dt>
+          <dd class="font-mono text-slate-700 mt-0.5">{{ precedente.id_provvedimento }}</dd>
+        </div>
+        <div>
+          <dt class="text-slate-400">Categoria</dt>
+          <dd class="text-slate-700 mt-0.5">{{ precedente.categoria_violazione or '—' }}</dd>
+        </div>
+        {% if precedente.sanzione_euro %}
+        <div>
+          <dt class="text-slate-400">Sanzione</dt>
+          <dd class="font-semibold text-red-600 mt-0.5">€ {{ "{:,}".format(precedente.sanzione_euro) }}</dd>
+        </div>
+        {% endif %}
+        <div>
+          <dt class="text-slate-400">Norma violata</dt>
+          <dd class="text-slate-600 mt-0.5 leading-relaxed">{{ precedente.norma_violata or '—' }}</dd>
+        </div>
+        {% if precedente.descrizione_fatti %}
+        <div class="pt-2 border-t border-slate-100">
+          <dt class="text-slate-400 mb-1">Fatti</dt>
+          <dd class="text-slate-600 leading-relaxed">{{ precedente.descrizione_fatti }}</dd>
+        </div>
+        {% endif %}
+      </dl>
+    </div>
+    {% endif %}
+
+    <!-- Documento info -->
+    <div class="bg-white rounded-xl ring-1 ring-slate-200 shadow-sm p-5">
+      <h3 class="font-semibold text-slate-700 text-sm mb-3">Informazioni</h3>
+      <dl class="space-y-2 text-xs">
+        <div class="flex justify-between">
+          <dt class="text-slate-400">ID albo</dt>
+          <dd class="font-mono text-slate-600">{{ doc.id_atto_albo or '—' }}</dd>
+        </div>
+        <div class="flex justify-between">
+          <dt class="text-slate-400">Sorgente</dt>
+          <dd class="text-slate-600">{{ doc.source }}</dd>
+        </div>
+        <div class="flex justify-between">
+          <dt class="text-slate-400">Pubblicato</dt>
+          <dd class="text-slate-600">{{ doc.data_pubblicazione or '—' }}</dd>
+        </div>
+        <div class="flex justify-between">
+          <dt class="text-slate-400">Stato</dt>
+          <dd class="text-slate-600">{{ doc.stato }}</dd>
+        </div>
+        {% if doc.expires_at %}
+        <div class="flex justify-between">
+          <dt class="text-slate-400">Report scade</dt>
+          <dd class="text-slate-600">{{ doc.expires_at[:10] }}</dd>
+        </div>
+        {% endif %}
+      </dl>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

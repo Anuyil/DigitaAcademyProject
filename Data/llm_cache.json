@@ -5,317 +5,600 @@
     "decisioni": [
       {
         "placeholder": "[PERSONA_1]",
-        "azione": "mantenere",
-        "motivazione": "Rappresenta un dato istituzionale (es. nome dell'ufficio o del responsabile) necessario per l'identificazione dell'atto.",
-        "norma": "Linee guida Garante Privacy 15/05/2014; Art. 5 GDPR"
+        "azione": "rimuovere",
+        "motivazione": "Nome di persona non strettamente necessario per la trasparenza della graduatoria; dati personali eccedenti.",
+        "norma": "Art. 5 GDPR – principio di minimizzazione; Linee guida Garante Privacy 15/05/2014"
       },
       {
         "placeholder": "[PERSONA_2]",
-        "azione": "mantenere",
-        "motivazione": "Indicazione di riferimento normativo, dato istituzionale rilevante per la trasparenza.",
-        "norma": "Linee guida Garante Privacy 15/05/2014; Art. 5 GDPR"
+        "azione": "rimuovere",
+        "motivazione": "Riferimento a persona non necessario per l'oggetto dell'atto; dati personali eccedenti.",
+        "norma": "Art. 5 GDPR – principio di minimizzazione; Linee guida Garante Privacy 15/05/2014"
       },
       {
         "placeholder": "[PERSONA_3]",
         "azione": "mantenere",
-        "motivazione": "Identifica il firmatario della determina; è un dato istituzionale necessario.",
-        "norma": "Linee guida Garante Privacy 15/05/2014; Art. 5 GDPR"
+        "motivazione": "Nome del dirigente responsabile, dato istituzionale legittimo nella pubblicazione di atti amministrativi.",
+        "norma": "Linee guida Garante Privacy 15/05/2014"
       },
       {
         "placeholder": "[PERSONA_4]",
         "azione": "mantenere",
-        "motivazione": "Riferimento al profilo professionale richiesto dal concorso, pertinente al contenuto dell'atto.",
-        "norma": "Linee guida Garante Privacy 15/05/2014; Art. 5 GDPR"
+        "motivazione": "Indicazione del ruolo/qualifica per la copertura dei posti; non è un dato personale sensibile.",
+        "norma": "Linee guida Garante Privacy 15/05/2014"
       },
       {
         "placeholder": "[PERSONA_5]",
-        "azione": "mantenere",
-        "motivazione": "Indica il responsabile della redazione dei verbali; dato istituzionale necessario.",
-        "norma": "Linee guida Garante Privacy 15/05/2014; Art. 5 GDPR"
+        "azione": "rimuovere",
+        "motivazione": "Placeholder non necessario per la trasparenza dell'atto; non contiene informazione istituzionale rilevante.",
+        "norma": "Art. 5 GDPR – principio di minimizzazione"
       },
       {
         "placeholder": "[PERSONA_6]",
         "azione": "mantenere",
-        "motivazione": "Nome del candidato inserito nella graduatoria; i nominativi dei candidati sono legittimi in graduatorie di concorso.",
-        "norma": "Linee guida Garante Privacy 15/05/2014; Art. 5 GDPR"
+        "motivazione": "Nome dell'organo o della commissione che approva la graduatoria, dato istituzionale legittimo.",
+        "norma": "Linee guida Garante Privacy 15/05/2014"
       },
       {
         "placeholder": "[PERSONA_7]",
         "azione": "mantenere",
-        "motivazione": "Nome del candidato in graduatoria; legittimo per la finalità di trasparenza.",
-        "norma": "Linee guida Garante Privacy 15/05/2014; Art. 5 GDPR"
+        "motivazione": "Nome del candidato in graduatoria di concorso, legittimo per garantire trasparenza del risultato.",
+        "norma": "Linee guida Garante Privacy 15/05/2014"
       },
       {
         "placeholder": "[PERSONA_8]",
         "azione": "mantenere",
-        "motivazione": "Nome del candidato in graduatoria; legittimo per la finalità di trasparenza.",
-        "norma": "Linee guida Garante Privacy 15/05/2014; Art. 5 GDPR"
+        "motivazione": "Nome del candidato in graduatoria di concorso, legittimo per garantire trasparenza del risultato.",
+        "norma": "Linee guida Garante Privacy 15/05/2014"
       },
       {
         "placeholder": "[PERSONA_9]",
         "azione": "mantenere",
-        "motivazione": "Nome del candidato (non vincitore) indicato nella graduatoria; è un dato necessario per la completa informazione dell'esito.",
-        "norma": "Linee guida Garante Privacy 15/05/2014; Art. 5 GDPR"
+        "motivazione": "Nome del candidato in graduatoria di concorso, legittimo per garantire trasparenza del risultato.",
+        "norma": "Linee guida Garante Privacy 15/05/2014"
       },
       {
         "placeholder": "[PERSONA_10]",
         "azione": "mantenere",
-        "motivazione": "Nome del candidato in graduatoria; legittimo per la finalità di trasparenza.",
-        "norma": "Linee guida Garante Privacy 15/05/2014; Art. 5 GDPR"
+        "motivazione": "Nome del candidato in graduatoria di concorso, legittimo per garantire trasparenza del risultato.",
+        "norma": "Linee guida Garante Privacy 15/05/2014"
       },
       {
         "placeholder": "[PERSONA_11]",
         "azione": "mantenere",
-        "motivazione": "Identifica il Responsabile del Procedimento; dato istituzionale necessario.",
-        "norma": "Linee guida Garante Privacy 15/05/2014; Art. 5 GDPR"
+        "motivazione": "Nome del responsabile del procedimento, dato istituzionale necessario per l'identificazione dell'autorità competente.",
+        "norma": "Linee guida Garante Privacy 15/05/2014"
       },
       {
         "placeholder": "[PERSONA_12]",
         "azione": "mantenere",
-        "motivazione": "Nome del professionista firmatario; dato istituzionale rilevante per la validità dell'atto.",
-        "norma": "Linee guida Garante Privacy 15/05/2014; Art. 5 GDPR"
+        "motivazione": "Nome dell'ingegnere firmatario, dato istituzionale legittimo nella determinazione.",
+        "norma": "Linee guida Garante Privacy 15/05/2014"
       }
     ],
     "passaggi_critici": []
   },
-  "eda92c36e68df68acb00be4e6af8acf52596d6f3f650ec3c0a35c3fa855d38c7": {
+  "9ddd8737dae0bb79d2df6cf6b61d331799e48fddc06d7156ca32e0472e6d12bd": {
     "tipo_atto": "determina_dirigenziale",
     "verdetto": "non_conforme",
     "decisioni": [
       {
         "placeholder": "[PERSONA_1]",
-        "azione": "mantenere",
-        "motivazione": "identificativo di protocollo istituzionale",
-        "norma": "art. 5 GDPR"
+        "azione": "rimuovere",
+        "motivazione": "non necessario per la trasparenza amministrativa, è un dato identificativo non istituzionale",
+        "norma": "Art. 5 GDPR"
       },
       {
         "placeholder": "[PERSONA_2]",
-        "azione": "mantenere",
-        "motivazione": "riferimento interno all'atto",
-        "norma": "art. 5 GDPR"
+        "azione": "rimuovere",
+        "motivazione": "non necessario, è un riferimento interno privo di valore informativo per il pubblico",
+        "norma": "Art. 5 GDPR"
       },
       {
         "placeholder": "[PERSONA_3]",
         "azione": "mantenere",
-        "motivazione": "riferimento interno all'atto",
-        "norma": "art. 5 GDPR"
+        "motivazione": "rappresenta un soggetto istituzionale (es. ufficio o responsabile) necessario per la tracciabilità dell'atto",
+        "norma": "Art. 5 GDPR"
       },
       {
         "placeholder": "[PERSONA_4]",
-        "azione": "rimuovere",
-        "motivazione": "nome e cognome del beneficiario non strettamente necessari per la trasparenza",
-        "norma": "art. 5 GDPR"
-      },
-      {
-        "placeholder": "[INDIRIZZO_4]",
-        "azione": "rimuovere",
-        "motivazione": "luogo di nascita del beneficiario non necessario",
-        "norma": "art. 5 GDPR"
+        "azione": "mantenere",
+        "motivazione": "necessario per identificare il beneficiario dell'assegno di cura, previsto dalle linee guida per graduatorie e beneficiari",
+        "norma": "Art. 5 GDPR"
       },
       {
         "placeholder": "[DATA_NASCITA_1]",
         "azione": "rimuovere",
-        "motivazione": "data di nascita del beneficiario non necessario",
-        "norma": "art. 5 GDPR"
+        "motivazione": "dato personale non strettamente necessario alla finalità di trasparenza amministrativa",
+        "norma": "Art. 5 GDPR"
+      },
+      {
+        "placeholder": "[INDIRIZZO_4]",
+        "azione": "rimuovere",
+        "motivazione": "indirizzo di residenza del beneficiario è un dato personale eccedente",
+        "norma": "Art. 5 GDPR"
       },
       {
         "placeholder": "[INDIRIZZO_5]",
         "azione": "rimuovere",
-        "motivazione": "indirizzo di residenza del beneficiario non necessario",
-        "norma": "art. 5 GDPR"
-      },
-      {
-        "placeholder": "[INDIRIZZO_6]",
-        "azione": "rimuovere",
-        "motivazione": "ulteriori dati di localizzazione non necessari",
-        "norma": "art. 5 GDPR"
+        "motivazione": "parte dell'indirizzo di residenza, dato personale eccedente",
+        "norma": "Art. 5 GDPR"
       },
       {
         "placeholder": "[PERSONA_5]",
         "azione": "rimuovere",
-        "motivazione": "ulteriore nominativo personale non necessario",
-        "norma": "art. 5 GDPR"
+        "motivazione": "non necessario per la comprensione dell'atto, è un dato identificativo personale",
+        "norma": "Art. 5 GDPR"
+      },
+      {
+        "placeholder": "[INDIRIZZO_6]",
+        "azione": "rimuovere",
+        "motivazione": "riferimento interno non necessario al pubblico",
+        "norma": "Art. 5 GDPR"
+      },
+      {
+        "placeholder": "[PERSONA_6]",
+        "azione": "rimuovere",
+        "motivazione": "codice fiscale o altro identificatore personale, dato sensibile non necessario",
+        "norma": "Art. 5 GDPR"
+      },
+      {
+        "placeholder": "[INDIRIZZO_7]",
+        "azione": "rimuovere",
+        "motivazione": "riferimento interno non necessario al pubblico",
+        "norma": "Art. 5 GDPR"
+      },
+      {
+        "placeholder": "[INDIRIZZO_8]",
+        "azione": "mantenere",
+        "motivazione": "indirizzo istituzionale del responsabile del procedimento, dato necessario per la tracciabilità dell'atto",
+        "norma": "Art. 5 GDPR"
       },
       {
         "placeholder": "[PERSONA_7]",
-        "azione": "rimuovere",
-        "motivazione": "eventuale codice fiscale o dati identificativi aggiuntivi del beneficiario",
-        "norma": "art. 5 GDPR"
+        "azione": "mantenere",
+        "motivazione": "nome del responsabile del procedimento, dato istituzionale necessario",
+        "norma": "Art. 5 GDPR"
       },
       {
-        "placeholder": "grave patologia oncologica invalidante al 100% con necessità di assistenza continua",
-        "azione": "minimizzare",
-        "motivazione": "dati sensibili sulla salute, non strettamente necessari per la trasparenza amministrativa",
-        "norma": "art. 9 GDPR"
+        "placeholder": "[INDIRIZZO_9]",
+        "azione": "mantenere",
+        "motivazione": "indirizzo istituzionale associato al responsabile, necessario per la trasparenza",
+        "norma": "Art. 5 GDPR"
+      },
+      {
+        "placeholder": "[PERSONA_8]",
+        "azione": "mantenere",
+        "motivazione": "nome dell'ingegnere responsabile, dato istituzionale necessario",
+        "norma": "Art. 5 GDPR"
       }
     ],
     "passaggi_critici": [
       {
-        "testo": "affetto da grave patologia oncologica invalidante al 100% con necessità di assistenza continua",
+        "testo": "è affetto da grave patologia oncologica invalidante al 100% con necessità di assistenza continua",
         "categoria": "salute",
         "gravita": "alta",
-        "motivazione": "rivelazione di dati sensibili sulla salute del beneficiario, violazione del principio di minimizzazione",
-        "norma": "art. 9 GDPR; art. 2-septies c.8 Codice privacy"
-      },
-      {
-        "testo": "cittadino [PERSONA_4], nato a [INDIRIZZO_4] il [DATA_NASCITA_1] e residente in [INDIRIZZO_5] alla [INDIRIZZO_6] n. 12, [PERSONA_5];",
-        "categoria": "disagio_economico",
-        "gravita": "media",
-        "motivazione": "raccolta di dati anagrafici completi non strettamente necessari per l'oggetto dell'atto, violazione del principio di minimizzazione",
-        "norma": "art. 5 GDPR; art. 2-septies c.8 Codice privacy"
+        "motivazione": "si tratta di dati sensibili sulla salute (categoria speciale) pubblicati senza adeguata giustificazione, violando art. 9 GDPR e art. 2-septies c.8 Codice privacy",
+        "norma": "Art. 9 GDPR; Art. 2-septies c.8 Codice privacy"
       }
     ]
   },
   "a813742ab9a8e0457e33f21a48879c8a24323e24caa051d92302e34ea5506a05": {
     "tipo_atto": "determina_dirigenziale",
-    "verdetto": "da_verificare",
+    "verdetto": "non_conforme",
     "decisioni": [
       {
-        "placeholder": "[PERSONA_1]",
-        "azione": "mantenere",
-        "motivazione": "Dato istituzionale (numero di protocollo) necessario per la tracciabilità dell'atto.",
-        "norma": "art. 5 GDPR"
+        "placeholder": "[PERSONA_4]",
+        "azione": "rimuovere",
+        "motivazione": "Il nome del beneficiario, associato a dati di ISEE e disoccupazione, rivela una condizione di disagio economico-sociale.",
+        "norma": "art. 26 c.4 d.lgs. 33/2013; art. 5.1.c GDPR"
       },
       {
         "placeholder": "[PERSONA_2]",
-        "azione": "mantenere",
-        "motivazione": "Nome del beneficiario direttamente legato all'erogazione del contributo.",
-        "norma": "art. 5 GDPR"
+        "azione": "rimuovere",
+        "motivazione": "Il nominativo del beneficiario è collegato a una misura di sostegno per povertà estrema, dati sensibili.",
+        "norma": "art. 26 c.4 d.lgs. 33/2013; art. 5.1.c GDPR"
       },
       {
         "placeholder": "[PERSONA_3]",
-        "azione": "mantenere",
-        "motivazione": "Nome del beneficiario direttamente legato all'erogazione del contributo.",
-        "norma": "art. 5 GDPR"
-      },
-      {
-        "placeholder": "[PERSONA_4]",
-        "azione": "mantenere",
-        "motivazione": "Identificazione del beneficiario; i dati economici collegati devono essere trattati separatamente.",
-        "norma": "art. 5 GDPR"
+        "azione": "rimuovere",
+        "motivazione": "Il nominativo del beneficiario è collegato a una misura di sostegno per povertà estrema, dati sensibili.",
+        "norma": "art. 26 c.4 d.lgs. 33/2013; art. 5.1.c GDPR"
       },
       {
         "placeholder": "[PERSONA_5]",
-        "azione": "mantenere",
-        "motivazione": "Informazione anagrafica aggiuntiva non sensibile.",
-        "norma": "art. 5 GDPR"
+        "azione": "rimuovere",
+        "motivazione": "Eventuale riferimento a dati personali del beneficiario che contribuiscono a identificare la sua condizione di disagio.",
+        "norma": "art. 26 c.4 d.lgs. 33/2013; art. 5.1.c GDPR"
       },
       {
         "placeholder": "[PERSONA_6]",
-        "azione": "mantenere",
-        "motivazione": "Riferimento a soggetto responsabile della verifica dei requisiti, dato istituzionale.",
-        "norma": "art. 5 GDPR"
+        "azione": "rimuovere",
+        "motivazione": "Il riferimento a un soggetto legato al sussidio per morosità incolpevole espone informazioni sul disagio abitativo.",
+        "norma": "art. 26 c.4 d.lgs. 33/2013; art. 5.1.c GDPR"
       },
       {
         "placeholder": "[PERSONA_7]",
+        "azione": "rimuovere",
+        "motivazione": "Il codice (presumibilmente fiscale) associato al beneficiario è un dato personale sensibile.",
+        "norma": "art. 26 c.4 d.lgs. 33/2013; art. 5.1.c GDPR"
+      },
+      {
+        "placeholder": "[INDIRIZZO_3]",
+        "azione": "rimuovere",
+        "motivazione": "L'indirizzo di residenza del beneficiario consente l'individuazione del soggetto in una situazione di disagio economico.",
+        "norma": "art. 26 c.4 d.lgs. 33/2013; art. 5.1.c GDPR"
+      },
+      {
+        "placeholder": "[PERSONA_1]",
         "azione": "mantenere",
-        "motivazione": "Codice fiscale necessario per l'identificazione univoca del beneficiario ai fini di pagamento.",
+        "motivazione": "Dato istituzionale di protocollo necessario per la trasparenza amministrativa.",
+        "norma": "art. 5 GDPR"
+      },
+      {
+        "placeholder": "[INDIRIZZO_1]",
+        "azione": "mantenere",
+        "motivazione": "Indirizzo dell'ente, informazione istituzionale.",
+        "norma": "art. 5 GDPR"
+      },
+      {
+        "placeholder": "[INDIRIZZO_2]",
+        "azione": "mantenere",
+        "motivazione": "Riferimento interno all'ufficio, dato istituzionale.",
         "norma": "art. 5 GDPR"
       },
       {
         "placeholder": "[PERSONA_8]",
         "azione": "mantenere",
-        "motivazione": "Responsabile del procedimento, dato istituzionale.",
+        "motivazione": "Nome del responsabile del procedimento, ruolo istituzionale.",
         "norma": "art. 5 GDPR"
       },
       {
         "placeholder": "[PERSONA_9]",
         "azione": "mantenere",
-        "motivazione": "Ingegnere responsabile, dato istituzionale.",
+        "motivazione": "Nome dell'ingegnere, ruolo istituzionale.",
         "norma": "art. 5 GDPR"
       },
       {
-        "placeholder": "euro 1.450,00",
-        "azione": "rimuovere",
-        "motivazione": "L'indicazione dell'ISEE e della condizione di disoccupazione rivela il disagio economico‑sociale del soggetto, dati considerati eccedenti rispetto alla finalità di trasparenza.",
-        "norma": "art. 26 c.4 d.lgs. 33/2013; precedente provv-tricase-2021"
+        "placeholder": "[INDIRIZZO_4]",
+        "azione": "mantenere",
+        "motivazione": "Indirizzo istituzionale dell'ufficio responsabile.",
+        "norma": "art. 5 GDPR"
+      },
+      {
+        "placeholder": "[INDIRIZZO_5]",
+        "azione": "mantenere",
+        "motivazione": "Indirizzo istituzionale dell'ufficio responsabile.",
+        "norma": "art. 5 GDPR"
       }
     ],
     "passaggi_critici": [
       {
-        "testo": "possiede un'attestazione ISEE pari a euro 1.450,00 annui e stato di disoccupazione involontaria",
+        "testo": "la richiedente [PERSONA_4], residente in [INDIRIZZO_3], [PERSONA_5], possiede un'attestazione ISEE pari a euro 1.450,00 annui e stato di disoccupazione involontaria;",
         "categoria": "disagio_economico",
-        "gravita": "media",
-        "motivazione": "Rivela informazioni sensibili sullo stato economico e occupazionale del beneficiario, violando il principio di minimizzazione.",
-        "norma": "art. 26 c.4 d.lgs. 33/2013; art. 5.1.c GDPR; precedente provv-tricase-2021"
+        "gravita": "alta",
+        "motivazione": "Rivelazione di dati sensibili relativi a condizione economica e disoccupazione, vietati dalla normativa.",
+        "norma": "art. 26 c.4 d.lgs. 33/2013; art. 5.1.c GDPR"
+      },
+      {
+        "testo": "Di concedere alla cittadina [PERSONA_4] ([PERSONA_7]) il contributo a fondo perduto pari a euro 800,00 quale misura di contrasto al disagio economico grave.",
+        "categoria": "disagio_economico",
+        "gravita": "alta",
+        "motivazione": "Identifica il beneficiario e la sua condizione di disagio economico, dati eccedenti rispetto alla finalità di trasparenza.",
+        "norma": "art. 26 c.4 d.lgs. 33/2013; art. 5.1.c GDPR"
       }
     ]
   },
-  "3ae86b93f9843b68f0deb679378a7c8de35d70976881d34465a4b48f8dc34a78": {
-    "tipo_atto": "determina_dirigenziale",
-    "verdetto": "da_verificare",
+  "1226044c296cda8c9b607729b974f8ef15dda406502393eae34bce892b3cb624": {
+    "tipo_atto": "ordinanza",
+    "verdetto": "non_conforme",
     "decisioni": [
       {
-        "placeholder": "[PERSONA_4] [PERSONA_5]",
-        "azione": "mantenere",
-        "motivazione": "Nome e cognome del cittadino a cui è rivolta l'ingiunzione, necessario per l'identificazione del soggetto obbligato.",
+        "placeholder": "[PERSONA_1]",
+        "azione": "rimuovere",
+        "motivazione": "Il riferimento non è necessario per l'ordinanza di demolizione.",
         "norma": "Art. 5 GDPR"
       },
       {
-        "placeholder": "[CF_1]",
-        "azione": "mantenere",
-        "motivazione": "Il codice fiscale è richiesto per l'individuazione univoca del soggetto nel procedimento amministrativo.",
+        "placeholder": "[PERSONA_2]",
+        "azione": "rimuovere",
+        "motivazione": "Il riferimento non è necessario per l'ordinanza di demolizione.",
         "norma": "Art. 5 GDPR"
       },
       {
-        "placeholder": "[INDIRIZZO_6]",
+        "placeholder": "[PERSONA_3]",
+        "azione": "rimuovere",
+        "motivazione": "Il riferimento non è necessario per l'ordinanza di demolizione.",
+        "norma": "Art. 5 GDPR"
+      },
+      {
+        "placeholder": "[PERSONA_4]",
+        "azione": "minimizzare",
+        "motivazione": "Il nome del cittadino può essere sostituito con una descrizione generica (es. \"cittadino\") poiché non è indispensabile per l'esecuzione dell'ordinanza.",
+        "norma": "Art. 5 GDPR"
+      },
+      {
+        "placeholder": "[PERSONA_5]",
+        "azione": "rimuovere",
+        "motivazione": "Il soggetto è indicato come \"trasgressore\" in un contesto giudiziario; i dati sono sensibili e non strettamente necessari.",
+        "norma": "Art. 10 GDPR, art. 2-octies Codice privacy"
+      },
+      {
+        "placeholder": "[CF_1] (per [PERSONA_4])",
+        "azione": "rimuovere",
+        "motivazione": "Il codice fiscale del cittadino non è necessario per l'ordinanza di demolizione.",
+        "norma": "Art. 5 GDPR"
+      },
+      {
+        "placeholder": "[CF_1] (per [PERSONA_8])",
         "azione": "mantenere",
-        "motivazione": "Indirizzo di residenza necessario per la notifica dell'ordinanza.",
+        "motivazione": "Il codice fiscale è necessario per identificare il soggetto obbligato a eseguire la demolizione.",
         "norma": "Art. 5 GDPR"
       },
       {
         "placeholder": "[PERSONA_8]",
         "azione": "mantenere",
-        "motivazione": "Il soggetto incaricato dell'esecuzione dell'ingiunzione deve essere identificato.",
-        "norma": "Art. 5 GDPR"
-      },
-      {
-        "placeholder": "[INDIRIZZO_8] della [INDIRIZZO_9]",
-        "azione": "minimizzare",
-        "motivazione": "Indicare solo la denominazione dell'organo competente (es. Procura) senza specificare l'indirizzo completo, per limitare i dati giudiziari divulgati.",
+        "motivazione": "Il destinatario dell'ordinanza è un dato necessario per l'esecuzione del provvedimento.",
         "norma": "Art. 5 GDPR"
       },
       {
         "placeholder": "[PERSONA_6]",
         "azione": "rimuovere",
-        "motivazione": "Il nome del soggetto citato nel verbale di sequestro non è strettamente necessario per la trasparenza dell'ingiunzione.",
+        "motivazione": "Il nome del soggetto coinvolto nel sequestro probatorio è un dato giudiziario sensibile e non indispensabile.",
+        "norma": "Art. 10 GDPR, art. 2-octies Codice privacy"
+      },
+      {
+        "placeholder": "[PERSONA_7]",
+        "azione": "rimuovere",
+        "motivazione": "Il riferimento non è necessario per l'ordinanza di demolizione.",
         "norma": "Art. 5 GDPR"
       },
       {
-        "placeholder": "[PERSONA_1]",
-        "azione": "rimuovere",
-        "motivazione": "Il riferimento a \"Atti e [PERSONA_1]\" non è essenziale per la comprensione dell'atto e può essere eliminato.",
+        "placeholder": "[PERSONA_9]",
+        "azione": "mantenere",
+        "motivazione": "Nome del responsabile del procedimento, dato istituzionale necessario per la trasparenza amministrativa.",
+        "norma": "Art. 5 GDPR"
+      },
+      {
+        "placeholder": "[PERSONA_10]",
+        "azione": "mantenere",
+        "motivazione": "Nome dell'ingegnere responsabile, dato istituzionale necessario per la trasparenza amministrativa.",
         "norma": "Art. 5 GDPR"
       }
     ],
     "passaggi_critici": [
       {
-        "testo": "cittadino [PERSONA_4] [PERSONA_5], C.F. [CF_1], residente in [INDIRIZZO_6]",
-        "categoria": "altro",
+        "testo": "cittadino [PERSONA_4] [PERSONA_5], C.F. [CF_1], residente in [INDIRIZZO_5];",
+        "categoria": "giudiziario",
         "gravita": "media",
-        "motivazione": "Dati identificativi completi del soggetto a cui è rivolta l'ingiunzione; pertinenti ma richiedono valutazione di minimizzazione.",
-        "norma": "Art. 5 GDPR"
+        "motivazione": "Rivela dati personali di un cittadino in un contesto di indagine, non strettamente necessario per l'ordinanza.",
+        "norma": "Art. 5 GDPR, Art. 10 GDPR"
       },
       {
-        "testo": "notizia di reato inoltrata alla [INDIRIZZO_8] della [INDIRIZZO_9]",
+        "testo": "notizia di reato inoltrata alla Procura della [INDIRIZZO_7] presso il [INDIRIZZO_8] per le violazioni penali ... contestate a carico del trasgressore Russo [PERSONA_5];",
         "categoria": "giudiziario",
         "gravita": "alta",
-        "motivazione": "Informazioni relative a un procedimento penale; la divulgazione dell'indirizzo completo dell'organo giudiziario è eccedente.",
-        "norma": "Art. 10 GDPR"
+        "motivazione": "Comunica l'esistenza di un procedimento penale e identifica il presunto trasgressore, dati sensibili protetti da Art. 10 GDPR.",
+        "norma": "Art. 10 GDPR, art. 2-octies Codice privacy"
       },
       {
-        "testo": "verbale di sequestro probatorio redatto dalla Polizia Giudiziaria per abuso edilizio continuato e violazione di sigilli apposti dal [PERSONA_6]",
+        "testo": "verbale di sequestro probatorio redatto dalla Polizia Giudiziaria per abuso edilizio continuato e violazione di sigilli apposti dal [PERSONA_6];",
         "categoria": "giudiziario",
         "gravita": "media",
-        "motivazione": "Il nome del soggetto coinvolto nel sequestro non è necessario per la trasparenza dell'atto.",
-        "norma": "Art. 10 GDPR"
+        "motivazione": "Fornisce dettagli di un'indagine penale e identifica un soggetto, dati sensibili non necessari per la finalità di trasparenza dell'ordinanza.",
+        "norma": "Art. 10 GDPR, art. 2-octies Codice privacy"
+      }
+    ]
+  },
+  "b92a1515ecb729a7b05ba0e90954694a920b586c2085bca32f5f7db4d31ca941": {
+    "tipo_atto": "graduatoria",
+    "verdetto": "conforme",
+    "decisioni": [
+      {
+        "placeholder": "[PERSONA_1]",
+        "azione": "mantenere",
+        "motivazione": "Il nome del candidato è necessario per identificare il vincitore nella graduatoria, previsto dalla normativa di trasparenza.",
+        "norma": "Art. 19 D.Lgs. 33/2013"
       },
       {
-        "testo": "Al Sig. [PERSONA_8] (C.F. [CF_1]) di procedere entro giorni 90 alla totale demolizione e rimozione delle opere abusive",
+        "placeholder": "[INDIRIZZO_1]",
+        "azione": "rimuovere",
+        "motivazione": "L’indirizzo del candidato non è necessario per la finalità di pubblicazione della graduatoria e costituisce dato personale eccedente.",
+        "norma": "Art. 5 GDPR – principio di minimizzazione"
+      },
+      {
+        "placeholder": "[INDIRIZZO_2]",
+        "azione": "rimuovere",
+        "motivazione": "L’indirizzo del candidato non è necessario per la finalità di pubblicazione della graduatoria e costituisce dato personale eccedente.",
+        "norma": "Art. 5 GDPR – principio di minimizzazione"
+      },
+      {
+        "placeholder": "[PERSONA_2]",
+        "azione": "mantenere",
+        "motivazione": "Il nome del candidato è pertinente alla graduatoria.",
+        "norma": "Art. 19 D.Lgs. 33/2013"
+      },
+      {
+        "placeholder": "[INDIRIZZO_3]",
+        "azione": "rimuovere",
+        "motivazione": "L’indirizzo del responsabile del procedimento non è necessario per l’informazione pubblica della graduatoria.",
+        "norma": "Art. 5 GDPR – principio di minimizzazione"
+      },
+      {
+        "placeholder": "[PERSONA_3]",
+        "azione": "mantenere",
+        "motivazione": "Il nome del responsabile è necessario per la tracciabilità dell’atto.",
+        "norma": "Art. 19 D.Lgs. 33/2013"
+      },
+      {
+        "placeholder": "[INDIRIZZO_4]",
+        "azione": "rimuovere",
+        "motivazione": "L’indirizzo del dirigente di settore è un dato personale non necessario per la trasparenza della graduatoria.",
+        "norma": "Art. 5 GDPR – principio di minimizzazione"
+      },
+      {
+        "placeholder": "[PERSONA_4]",
+        "azione": "mantenere",
+        "motivazione": "Il nome del dirigente è necessario per l’identificazione dell’autorità che ha firmato l’atto.",
+        "norma": "Art. 19 D.Lgs. 33/2013"
+      }
+    ],
+    "passaggi_critici": [
+      {
+        "testo": "[INDIRIZZO_1]",
         "categoria": "altro",
         "gravita": "bassa",
-        "motivazione": "Identificazione del responsabile dell'esecuzione; dati pertinenti ma già presenti altrove.",
-        "norma": "Art. 5 GDPR"
+        "motivazione": "L’indirizzo è un dato personale non necessario per la finalità di pubblicazione della graduatoria.",
+        "norma": "Art. 5 GDPR – principio di minimizzazione"
+      },
+      {
+        "testo": "[INDIRIZZO_2]",
+        "categoria": "altro",
+        "gravita": "bassa",
+        "motivazione": "L’indirizzo è un dato personale non necessario per la finalità di pubblicazione della graduatoria.",
+        "norma": "Art. 5 GDPR – principio di minimizzazione"
+      },
+      {
+        "testo": "[INDIRIZZO_3] [PERSONA_3]",
+        "categoria": "altro",
+        "gravita": "bassa",
+        "motivazione": "L’indirizzo del responsabile è eccedente; il nome è legittimo.",
+        "norma": "Art. 5 GDPR – principio di minimizzazione"
+      },
+      {
+        "testo": "[INDIRIZZO_4] . Ing. [PERSONA_4]",
+        "categoria": "altro",
+        "gravita": "bassa",
+        "motivazione": "L’indirizzo del dirigente è eccedente; il nome è legittimo.",
+        "norma": "Art. 5 GDPR – principio di minimizzazione"
+      }
+    ]
+  },
+  "1acb8ed4b849a5ac1936cc0fdfebfd604c0314894188b01472b1f8c2f60ca1a1": {
+    "tipo_atto": "determina_dirigenziale",
+    "verdetto": "non_conforme",
+    "decisioni": [
+      {
+        "placeholder": "[PERSONA_1]",
+        "azione": "rimuovere",
+        "motivazione": "Il nome del beneficiario è un dato personale sensibile e la sua diffusione è eccedente rispetto alle finalità di trasparenza amministrativa.",
+        "norma": "art. 26 c.4 d.lgs. 33/2013; art. 5.1.c GDPR"
+      },
+      {
+        "placeholder": "[CF_1]",
+        "azione": "rimuovere",
+        "motivazione": "Il codice fiscale è un dato identificativo personale e la sua pubblicazione è non necessaria per la trasparenza dell'atto.",
+        "norma": "art. 26 c.4 d.lgs. 33/2013; art. 5.1.c GDPR"
+      },
+      {
+        "placeholder": "[INDIRIZZO_1]",
+        "azione": "rimuovere",
+        "motivazione": "L'indirizzo di residenza è un dato personale che non è indispensabile per l'informazione pubblica dell'atto.",
+        "norma": "art. 26 c.4 d.lgs. 33/2013; art. 5.1.c GDPR"
+      }
+    ],
+    "passaggi_critici": [
+      {
+        "testo": "Accertato che la richiedente [PERSONA_1], residente in [INDIRIZZO_1], Codice Fiscale [CF_1], possiede un'attestazione ISEE pari a euro 1.450,00 annui e stato di disoccupazione involontaria;",
+        "categoria": "disagio_economico",
+        "gravita": "alta",
+        "motivazione": "L'indicazione della fascia ISEE e dello stato di disoccupazione, unitamente ai dati identificativi, rende la comunicazione eccedente e vulnerabile a discriminazioni.",
+        "norma": "art. 26 c.4 d.lgs. 33/2013; art. 5.1.c GDPR"
+      }
+    ]
+  },
+  "4d3d85bcdc894db11c9cd302ed650d071a8d3031120fd49d8dc92c5a1c35c069": {
+    "tipo_atto": "graduatoria",
+    "verdetto": "conforme",
+    "decisioni": [
+      {
+        "placeholder": "[PERSONA_1]",
+        "azione": "mantenere",
+        "motivazione": "I nomi in graduatorie di concorso ed esiti di gara sono legittimi e necessari per la trasparenza amministrativa.",
+        "norma": "Art. 19 D.Lgs. 33/2013"
+      },
+      {
+        "placeholder": "[PERSONA_2]",
+        "azione": "mantenere",
+        "motivazione": "I nomi in graduatorie di concorso ed esiti di gara sono legittimi e necessari per la trasparenza amministrativa.",
+        "norma": "Art. 19 D.Lgs. 33/2013"
+      },
+      {
+        "placeholder": "[PERSONA_3]",
+        "azione": "mantenere",
+        "motivazione": "I nomi in graduatorie di concorso ed esiti di gara sono legittimi e necessari per la trasparenza amministrativa.",
+        "norma": "Art. 19 D.Lgs. 33/2013"
+      },
+      {
+        "placeholder": "[PERSONA_4]",
+        "azione": "mantenere",
+        "motivazione": "I nomi in graduatorie di concorso ed esiti di gara sono legittimi e necessari per la trasparenza amministrativa.",
+        "norma": "Art. 19 D.Lgs. 33/2013"
+      },
+      {
+        "placeholder": "[PERSONA_5]",
+        "azione": "mantenere",
+        "motivazione": "Il nome del responsabile del procedimento è un dato istituzionale necessario per la trasparenza.",
+        "norma": "Art. 19 D.Lgs. 33/2013"
+      },
+      {
+        "placeholder": "[PERSONA_6]",
+        "azione": "mantenere",
+        "motivazione": "Il nome del dirigente di settore è un dato istituzionale necessario per la trasparenza.",
+        "norma": "Art. 19 D.Lgs. 33/2013"
+      }
+    ],
+    "passaggi_critici": []
+  },
+  "eaaa2ee11d872d803f250fe6f412e2bceaf57c8b797cfdad0c28fa217297d773": {
+    "tipo_atto": "determina_dirigenziale",
+    "verdetto": "non_conforme",
+    "decisioni": [
+      {
+        "placeholder": "[PERSONA_1]",
+        "azione": "rimuovere",
+        "motivazione": "Il nominativo della beneficiaria, associato a ISEE e stato di disoccupazione, rivela una condizione di disagio economico-sociale: dato eccedente rispetto alla finalità di trasparenza, come nel precedente provv-tricase-2021.",
+        "norma": "art. 26 c.4 d.lgs. 33/2013; art. 2-septies Codice Privacy; art. 5.1.c GDPR"
+      },
+      {
+        "placeholder": "[CF_1]",
+        "azione": "rimuovere",
+        "motivazione": "Il codice fiscale è un dato identificativo diretto che, unito alla condizione di disagio economico del beneficiario, è eccedente rispetto alla finalità di trasparenza.",
+        "norma": "art. 26 c.4 d.lgs. 33/2013; art. 5.1.c GDPR"
+      },
+      {
+        "placeholder": "[INDIRIZZO_1]",
+        "azione": "rimuovere",
+        "motivazione": "L'indirizzo di residenza consente l'individuazione della beneficiaria in stato di disagio economico, dato non necessario alla finalità di trasparenza.",
+        "norma": "art. 26 c.4 d.lgs. 33/2013; art. 5.1.c GDPR"
+      },
+      {
+        "placeholder": "[PERSONA_2]",
+        "azione": "mantenere",
+        "motivazione": "Il nome del responsabile del procedimento è un dato istituzionale necessario per la tracciabilità amministrativa dell'atto.",
+        "norma": "art. 5 GDPR"
+      },
+      {
+        "placeholder": "[PERSONA_3]",
+        "azione": "mantenere",
+        "motivazione": "Il nome del dirigente di settore è un dato istituzionale necessario per la tracciabilità amministrativa dell'atto.",
+        "norma": "art. 5 GDPR"
+      }
+    ],
+    "passaggi_critici": [
+      {
+        "testo": "Accertato che la richiedente [PERSONA_1], residente in [INDIRIZZO_1], Codice Fiscale [CF_1], possiede un'attestazione ISEE pari a euro 1.450,00 annui e stato di disoccupazione involontaria;",
+        "categoria": "disagio_economico",
+        "gravita": "alta",
+        "motivazione": "Il testo identifica la beneficiaria di un sussidio economico rivelando nominativo, codice fiscale, indirizzo e condizione di indigenza nello stesso passaggio — esattamente il caso sanzionato nel precedente provv-tricase-2021 (Comune, sanzione €15.000).",
+        "norma": "art. 26 c.4 d.lgs. 33/2013; art. 2-septies Codice Privacy; art. 5.1.c GDPR"
+      },
+      {
+        "testo": "Di concedere alla cittadina [PERSONA_1] (C.F. [CF_1]) il contributo a fondo perduto pari a euro 800,00 quale misura di contrasto al disagio economico grave.",
+        "categoria": "disagio_economico",
+        "gravita": "alta",
+        "motivazione": "Il dispositivo dell'atto ripete l'associazione diretta tra identità del beneficiario e condizione di disagio economico grave, aggravando l'esposizione già rilevata nel precedente provv-tricase-2021.",
+        "norma": "art. 26 c.4 d.lgs. 33/2013; art. 5.1.c GDPR"
       }
     ]
   }

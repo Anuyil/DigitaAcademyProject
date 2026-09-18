@@ -53,6 +53,7 @@ def _save_report(doc_id: int, result: dict) -> None:
         findings_json     = {
             "entities":         result.get("entities", []),
             "passaggi_critici": result.get("passaggi_critici", []),
+            "decisioni":        result.get("decisioni", []),
         },
         pdf_corretto_path = result.get("pdf_corretto"),
         precedente_json   = result.get("precedente"),

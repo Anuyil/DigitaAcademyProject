@@ -154,12 +154,12 @@ def analyze_pdf(pdf_path: str, output_dir: str) -> dict:
     log.info(f"  LLM → verdetto={verdetto} | tipo={tipo_atto_llm} | "
              f"passaggi={len(passaggi)} | decisioni={len(decisioni)}")
 
-    # 5. Redazione PDF
-    pdf_corretto_path = str(Path(output_dir) / f"corretto_{file_name}")
+    # 5. Redazione PDF — bande nere solo sui dati flaggati dall'LLM
+    output_path = str(Path(output_dir) / f"oscurato_{file_name}")
     try:
-        redact_pdf(
+        pdf_corretto_path = redact_pdf(
             pdf_path         = str(pdf_path),
-            output_path      = pdf_corretto_path,
+            output_path      = output_path,
             mapping          = mapping,
             decisioni        = decisioni,
             passaggi_critici = passaggi,

@@ -33,6 +33,64 @@ except ImportError:
     _HAS_STDNUM = False
 
 
+# ── termini istituzionali che spaCy non deve mai taggare come entità ─────────
+# (tipi di atto, istituzioni, mesi, ruoli — mai dati personali)
+_SPACY_SKIP: set[str] = {
+    # tipi di atto
+    "ordinanza", "delibera", "determina", "determinazione", "decreto",
+    "legge", "articolo", "comma", "lettera", "allegato", "protocollo",
+    "provvedimento", "circolare", "nota", "verbale", "atto",
+    # istituzioni e uffici
+    "comune", "provincia", "regione", "stato", "governo", "nazione",
+    "tribunale", "procura", "questura", "prefettura", "corte", "gip",
+    "ministero", "agenzia", "ente", "istituto", "ufficio", "settore",
+    "consiglio", "giunta", "commissione", "dipartimento", "direzione",
+    "polizia", "carabinieri", "guardia", "municipio",
+    # ruoli
+    "sindaco", "assessore", "dirigente", "funzionario", "responsabile",
+    "segretario", "presidente", "vicepresidente", "consigliere",
+    "cittadino", "dipendente", "beneficiario", "richiedente",
+    "trasgressore", "indagato", "imputato", "destinatario",
+    "istruttore", "istruttori", "amministrativo", "amministrativi",
+    "candidato", "candidati", "vincitore", "idoneo",
+    # incipit tipici degli atti amministrativi (participi/verbi che spaCy
+    # confonde con nomi propri quando iniziano una frase)
+    "visto", "vista", "visti", "viste", "considerato", "considerata",
+    "considerati", "considerate", "accertato", "accertata",
+    "richiamato", "richiamata", "premesso", "premessa", "rilevato",
+    "rilevata", "ritenuto", "ritenuta", "atteso", "attesa", "dato",
+    "sentito", "sentita", "preso", "presa", "acquisito", "acquisita",
+    # etichette di modulo/tabella e titoli, mai dati personali
+    "registro", "trasparenza", "pubblicazione", "pubblicazioni",
+    "posizione", "punteggio", "titoli", "prove", "totale", "esito",
+    "cognome", "nome", "buoni", "spesa", "sostegno", "locazione",
+    # abbreviazioni di titolo isolate (senza il nome che segue): spaCy a
+    # volte le tagga da sole come LOC — non portano nessuna informazione
+    "dott", "sig", "avv", "geom", "arch", "prof", "dr",
+    # mesi (spacy li confonde con nomi propri in italiano)
+    "gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno",
+    "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre",
+    # città italiane — appaiono sia in contesti personali sia istituzionali
+    # ("nato a Napoli" MA ANCHE "Tribunale di Napoli") → non oscurare mai
+    "napoli", "roma", "milano", "torino", "firenze", "venezia", "bologna",
+    "palermo", "genova", "catania", "bari", "messina", "padova", "trieste",
+    "brescia", "parma", "modena", "livorno", "cagliari", "foggia", "salerno",
+    "ferrara", "rimini", "ravenna", "siracusa", "pescara", "bergamo", "verona",
+    "nola", "avellino", "caserta", "benevento", "ottaviano", "portici",
+    "ercolano", "castellammare", "pozzuoli", "giugliano", "aversa",
+    "italia", "campania", "lazio", "sicilia", "lombardia", "puglia",
+}
+
+# parole che segnalano un vero indirizzo (via, numero civico, ecc.) — usate
+# per capire se un'entità "LOC" di spaCy è davvero un luogo o un nome di
+# persona mal etichettato (vedi punto 8 di pseudonymize)
+_ADDRESS_KEYWORDS: set[str] = {
+    "via", "viale", "piazza", "piazzale", "corso", "largo", "vicolo",
+    "strada", "frazione", "contrada", "traversa", "vico", "rione",
+    "borgo", "località", "localita", "c", "so", "p",
+}
+
+
 # ── pattern regex ─────────────────────────────────────────────────────────────
 
 # CF: 6 lettere + 2 alfanumerici + 1 lettera mese + 2 cifre + 1 lettera + 3 alfanumerici + 1 lettera
@@ -68,11 +126,16 @@ _DATA_NASCITA_RE = re.compile(
     re.IGNORECASE,
 )
 
-# Euristiche titoli: cattura il NOME dopo il titolo
+# Euristiche titoli: cattura il NOME dopo il titolo (sig., avv., dott. …)
+# NB: l'IGNORECASE va applicato SOLO al prefisso del titolo — se si applica a
+# tutto il pattern, la classe [A-Z] nel gruppo del nome perde il vincolo di
+# maiuscola e il match "ingoia" qualsiasi parola minuscola successiva, anche
+# oltre l'a-capo (es. "Dott.ssa Valeria Moretti" + tutto il testo seguente).
+# Il separatore è limitato a spazio/tab (mai \n) per non unire righe diverse,
+# e il numero di parole del nome è limitato per evitare match a valanga.
 _TITOLO_RE = re.compile(
-    r'\b(?:sig\.(?:ra)?|dott(?:\.ssa)?|avv\.|ing\.|geom\.|arch\.|prof\.(?:ssa)?|dr\.?)\s+'
-    r'([A-ZÀÈÉÌÒÙÜ][a-zàèéìòùü]+(?:\s+[A-ZÀÈÉÌÒÙÜ][a-zàèéìòùü]+)*)',
-    re.IGNORECASE,
+    r'\b(?:(?i:sig\.(?:ra)?|dott(?:\.ssa)?|avv\.|ing\.|geom\.|arch\.|prof\.(?:ssa)?|dr\.?))[ \t]+'
+    r'([A-ZÀÈÉÌÒÙÜ][a-zàèéìòùü]+(?:[ \t]+[A-ZÀÈÉÌÒÙÜ][a-zàèéìòùü]+){0,2})'
 )
 
 # Priorità per la risoluzione degli overlap (più basso = più prioritario)
@@ -154,15 +217,40 @@ def pseudonymize(text: str) -> dict:
         s = m.start(1)
         raw_spans.append((s, s + len(nome), "PER", nome))
 
-    # 8. spaCy PER e LOC
+    # 8. spaCy PER e LOC — con filtro per falsi positivi istituzionali
     if _NLP is not None:
         doc = _NLP(text)
         for ent in doc.ents:
-            if ent.label_ in ("PER", "LOC"):
-                raw_spans.append((ent.start_char, ent.end_char, ent.label_, ent.text))
+            if ent.label_ not in ("PER", "LOC"):
+                continue
+            val = ent.text.strip()
+            if len(val) < 3:
+                continue
+            # span che attraversa un a-capo: quasi sempre un artefatto di
+            # estrazione testo (intestazioni/tabelle), mai un nome reale
+            if "\n" in val:
+                continue
+            # scarta l'intera entità se una qualsiasi delle sue parole è un
+            # termine istituzionale/di modulo — mai un dato personale
+            words = re.findall(r"[\wàèéìòù]+", val.lower())
+            if any(w in _SPACY_SKIP for w in words):
+                continue
+            # spaCy scambia spesso PER/LOC su nomi di persona in elenchi e
+            # firme: un "LOC" senza numero e senza una parola tipica di
+            # indirizzo non è un luogo — è quasi certamente un nome mal
+            # etichettato, da trattare come PERSONA (mai perso, mai un
+            # "indirizzo" fittizio che confonde l'LLM sull'azione da fare)
+            label = ent.label_
+            if label == "LOC" and not any(c.isdigit() for c in val) \
+                    and not any(w in _ADDRESS_KEYWORDS for w in words):
+                label = "PER"
+            raw_spans.append((ent.start_char, ent.end_char, label, val))
 
-    # 9. Risoluzione overlap: ordina per start, poi per priorità
-    raw_spans.sort(key=lambda x: (x[0], _PRIORITY.get(x[2], 99)))
+    # 9. Risoluzione overlap: priorità prima di tutto (CF/IBAN/... vincono
+    # sempre su una entità spaCy che li racchiude per intero, es. "Codice
+    # Fiscale RSSMRA..." non deve far perdere lo span esatto del CF), poi
+    # start per l'ordine tra span di pari priorità.
+    raw_spans.sort(key=lambda x: (_PRIORITY.get(x[2], 99), x[0]))
     accepted: list[tuple[int, int, str, str]] = []
     covered: list[tuple[int, int]] = []
 
