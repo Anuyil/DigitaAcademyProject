@@ -1,0 +1,153 @@
+[
+  {
+    "file": "graduatoria_concorso_01.pdf",
+    "conforme": true,
+    "categoria_violazione": null,
+    "tipo_atto": "graduatoria",
+    "id_provvedimento_origine": null,
+    "passaggi_problematici": []
+  },
+  {
+    "file": "delibera_bilancio_02.pdf",
+    "conforme": true,
+    "categoria_violazione": null,
+    "tipo_atto": "delibera",
+    "id_provvedimento_origine": null,
+    "passaggi_problematici": []
+  },
+  {
+    "file": "determina_contributo_salute_03.pdf",
+    "conforme": false,
+    "categoria_violazione": "salute",
+    "tipo_atto": "determina_dirigenziale",
+    "id_provvedimento_origine": "provv-monteiasi-2022",
+    "passaggi_problematici": [
+      "affetto da grave patologia oncologica invalidante al 100% con necessità di assistenza continua",
+      "disabilità gravissima ex art. 3 c. 3 L. 104/1992",
+      "stante lo stato accertato di disabilità gravissima e patologia cronica non autosufficiente"
+    ]
+  },
+  {
+    "file": "determina_sussidio_disagio_04.pdf",
+    "conforme": false,
+    "categoria_violazione": "disagio_economico",
+    "tipo_atto": "determina_dirigenziale",
+    "id_provvedimento_origine": "provv-tricase-2021",
+    "passaggi_problematici": [
+      "sostegno economico straordinario a favore di nuclei familiari in condizione di povertà estrema",
+      "attestazione ISEE pari a euro 1.450,00 annui e stato di disoccupazione involontaria",
+      "erogazione del sussidio economico di euro 800,00 per morosità incolpevole e disagio abitativo"
+    ]
+  },
+  {
+    "file": "ordinanza_minore_affido_05.pdf",
+    "conforme": false,
+    "categoria_violazione": "minori",
+    "tipo_atto": "ordinanza",
+    "id_provvedimento_origine": "provv-commezzadura-2022",
+    "passaggi_problematici": [
+      "in favore del minore Bianchi Leonardo nato a Napoli il 14/05/2016",
+      "disposto l'affidamento eterofamiliare temporaneo del minore con collocamento residenziale protetto",
+      "prescrizioni del Tribunale per i Minorenni relative alla tutela educativa del minore Bianchi Leonardo"
+    ]
+  },
+  {
+    "file": "determina_iban_eccedente_06.pdf",
+    "conforme": false,
+    "categoria_violazione": "dati_economici",
+    "tipo_atto": "determina_dirigenziale",
+    "id_provvedimento_origine": "provv-roma-2021",
+    "passaggi_problematici": [
+      "accredito sul conto corrente personale intestato all'Avv. Esposito Marco presso Banca Intesa",
+      "coordinate bancarie IBAN IT60X0542811101000000123456",
+      "liquidazione della parcella professionale al Codice Fiscale SPSMRC78A15F839T"
+    ]
+  },
+  {
+    "file": "atto_vicenda_giudiziaria_07.pdf",
+    "conforme": false,
+    "categoria_violazione": "giudiziario",
+    "tipo_atto": "ordinanza",
+    "id_provvedimento_origine": "provv-conflenti-2020",
+    "passaggi_problematici": [
+      "notizia di reato inoltrata alla Procura della Repubblica presso il Tribunale di Napoli",
+      "violazioni penali di cui all'art. 44 lett. b del D.P.R. 380/2001 contestate a carico del trasgressore",
+      "verbale di sequestro probatorio redatto dalla Polizia Giudiziaria per abuso edilizio continuato"
+    ]
+  },
+  {
+    "file": "ordinanza_viabilita_08.pdf",
+    "conforme": true,
+    "categoria_violazione": null,
+    "tipo_atto": "ordinanza",
+    "id_provvedimento_origine": null,
+    "passaggi_problematici": []
+  },
+  {
+    "file": "01_determina_spese_legali_salute_iban.pdf",
+    "conforme": false,
+    "categoria_violazione": "salute",
+    "tipo_atto": "determina_dirigenziale",
+    "id_provvedimento_origine": "ordinanza-3-2020",
+    "passaggi_problematici": [
+      "dal dipendente Gennaro Esposito",
+      "Gennaro Esposito, nato a",
+      "Napoli il 12/03/1971, C.F. SPSGNR71C12F839D, residente in Borgo Vesuviano alla Via Roma n. 48,",
+      "cardiopatia ischemica cronica con esiti di infarto",
+      "miocardico acuto trattato con angioplastica coronarica e impianto di due stent medicati",
+      "della sindrome ansioso-depressiva reattiva insorta successivamente all'evento",
+      "verbale n. 3312/CMO del 18/10/2023",
+      "l'infermità ascrivibile alla VI categoria della Tabella A allegata al D.P.R. n. 834/1981",
+      "diritto all'equo indennizzo per un importo di euro 18.450,00",
+      "in ordine alla sindrome ansioso-depressiva",
+      "C.F. RSSCRL80S45F839Z",
+      "IBAN IT37H0503439960000000457812"
+    ]
+  },
+  {
+    "file": "02_determina_contributo_barriere_disabile.pdf",
+    "conforme": false,
+    "categoria_violazione": "salute",
+    "tipo_atto": "determina_dirigenziale",
+    "id_provvedimento_origine": "provv-16-09-2021-montalbano",
+    "passaggi_problematici": [
+      "in favore del sig. Salvatore Coppola per il padre Vincenzo Coppola, portatore di",
+      "handicap grave ai sensi dell'art. 3, comma 3, Legge n. 104/1992",
+      "Salvatore Coppola, nato a Napoli il 22/07/1978, C.F.",
+      "CPPSVT78L22F839Y",
+      "alla Via Vittorio Veneto n. 113, scala B, piano 3",
+      "Vincenzo Coppola, nato a Ottaviano il 30/01/1946, C.F. CPPVCN46A30G190U",
+      "affetto da tetraparesi spastica esito di ictus ischemico",
+      "invalidità civile al",
+      "100% e indennità di accompagnamento",
+      "Commissione medica ASL Napoli 3 Sud n. 77/2024",
+      "portatore di handicap in situazione di gravità",
+      "la fattura n. 88/2026 del 10/07/2026",
+      "fattura n. 94/2026 del 24/07/2026",
+      "in favore del sig. Salvatore Coppola",
+      "sito in Via Vittorio Veneto n. 113"
+    ]
+  },
+  {
+    "file": "03_determina_sospensione_procedimento_penale.pdf",
+    "conforme": false,
+    "categoria_violazione": "giudiziario",
+    "tipo_atto": "determina_dirigenziale",
+    "id_provvedimento_origine": "ordinanza-118-2020",
+    "passaggi_problematici": [
+      "dipendente M. R., matricola n. 00457",
+      "Ufficio Tributi - Sportello TARI",
+      "determinazione dirigenziale n. 198 del 12/04/2026",
+      "è l'unica addetta allo sportello di riscossione diretta del Comune",
+      "nota prot. n. 2231/2026 del 09/09/2026",
+      "al n. 15877 del 10/09/2026",
+      "indagata nel procedimento penale n. 3187/2026 R.G.N.R. per il reato di peculato continuato (art. 314 c.p.)",
+      "per essersi appropriata, secondo l'ipotesi accusatoria, di somme versate in contanti dai contribuenti",
+      "ordinanza del G.I.P. del Tribunale di Nola del 05/09/2026",
+      "misura cautelare interdittiva della sospensione dall'esercizio del pubblico ufficio",
+      "già destinataria di procedimento disciplinare avviato con nota prot. n. 11204 del 22/06/2026",
+      "per irregolarità nella tenuta del registro di cassa",
+      "procedimento disciplinare prot. n. 11204/2026"
+    ]
+  }
+]

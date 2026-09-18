@@ -1,0 +1,367 @@
+[
+  {
+    "id_provvedimento": "ordinanza-3-2020",
+    "ente": "Comune",
+    "tipo_atto": "determina_dirigenziale",
+    "dati_esposti": [
+      "patologia",
+      "equo indennizzo",
+      "iban"
+    ],
+    "categoria_violazione": "salute",
+    "norma_violata": "art. 2-septies c.8 Codice privacy; art. 9 GDPR; art. 5.1.c GDPR",
+    "giorni_esposizione": null,
+    "sanzione_euro": 10000,
+    "descrizione_fatti": "Determina di liquidazione di spese legali relative a un giudizio promosso da un dipendente per il riconoscimento di un'infermità da causa di servizio: riportava la patologia, il diritto all'equo indennizzo e l'IBAN del legale incaricato dal Comune. Contestata anche la pubblicazione protratta oltre il periodo previsto. (Ordinanza ingiunzione 15/01/2020, doc. web n. 9261227)"
+  },
+  {
+    "id_provvedimento": "provv-monteiasi-2022",
+    "ente": "Comune",
+    "tipo_atto": "determina_dirigenziale",
+    "dati_esposti": [
+      "nominativo",
+      "codice_fiscale",
+      "patologia",
+      "stato_invalidita"
+    ],
+    "categoria_violazione": "salute",
+    "norma_violata": "art. 2-septies Codice privacy; art. 9 GDPR",
+    "giorni_esposizione": 45,
+    "sanzione_euro": 10000,
+    "descrizione_fatti": "Pubblicazione sull'albo pretorio online di una determinazione dirigenziale recante i nominativi, i codici fiscali e le patologie invalidanti di cittadini beneficiari di contributi economici per disabilità grave ex L. 104/1992."
+  },
+  {
+    "id_provvedimento": "provv-tricase-2021",
+    "ente": "Comune",
+    "tipo_atto": "determina_dirigenziale",
+    "dati_esposti": [
+      "nominativo",
+      "codice_fiscale",
+      "valore_isee",
+      "condizione_economica"
+    ],
+    "categoria_violazione": "disagio_economico",
+    "norma_violata": "art. 26 c.4 d.lgs. 33/2013; art. 5.1.c GDPR",
+    "giorni_esposizione": 90,
+    "sanzione_euro": 15000,
+    "descrizione_fatti": "Diffusione sull'albo pretorio dell'elenco nominativo dei soggetti richiedenti il buono spesa alimentare con espressa indicazione della fascia ISEE di povertà e della condizione di disoccupazione."
+  },
+  {
+    "id_provvedimento": "provv-latina-2020",
+    "ente": "Comune",
+    "tipo_atto": "determina_dirigenziale",
+    "dati_esposti": [
+      "nominativo",
+      "codice_fiscale",
+      "canone_locazione",
+      "morosita"
+    ],
+    "categoria_violazione": "disagio_economico",
+    "norma_violata": "art. 26 c.4 d.lgs. 33/2013; art. 6 GDPR",
+    "giorni_esposizione": null,
+    "sanzione_euro": 12000,
+    "descrizione_fatti": "Pubblicazione integrale dell'elenco dei locatari ammessi al fondo per la morosità incolpevole con l'indicazione dell'ammontare del debito locatizio e dello stato di sfratto esecutivo per indigenza."
+  },
+  {
+    "id_provvedimento": "provv-palermo-2022",
+    "ente": "Comune",
+    "tipo_atto": "determina_dirigenziale",
+    "dati_esposti": [
+      "nominativo",
+      "codice_fiscale",
+      "sussidio_economico",
+      "situazione_reddituale"
+    ],
+    "categoria_violazione": "disagio_economico",
+    "norma_violata": "art. 26 c.4 d.lgs. 33/2013; art. 5 GDPR",
+    "giorni_esposizione": null,
+    "sanzione_euro": 14000,
+    "descrizione_fatti": "Erogazione di un contributo economico straordinario una tantum per il sostegno al pagamento delle bollette domestiche, con allegato riportante nominativi, importi erogati e certificazione di indigenza economica."
+  },
+  {
+    "id_provvedimento": "provv-thiene-2021",
+    "ente": "Comune",
+    "tipo_atto": "graduatoria",
+    "dati_esposti": [
+      "nome_minore",
+      "cognome_minore",
+      "data_nascita",
+      "disabilita_minore"
+    ],
+    "categoria_violazione": "minori",
+    "norma_violata": "art. 5 GDPR; art. 9 GDPR; Linee guida Garante 15/05/2014",
+    "giorni_esposizione": 60,
+    "sanzione_euro": 12000,
+    "descrizione_fatti": "Pubblicazione della graduatoria per l'accesso ai servizi educativi per l'infanzia con l'indicazione in chiaro delle generalità di minori affetti da disturbi dello spettro autistico e bisogni educativi speciali."
+  },
+  {
+    "id_provvedimento": "provv-commezzadura-2022",
+    "ente": "Comune",
+    "tipo_atto": "ordinanza",
+    "dati_esposti": [
+      "nome_minore",
+      "cognome_minore",
+      "situazione_familiare",
+      "affidamento"
+    ],
+    "categoria_violazione": "minori",
+    "norma_violata": "art. 5 GDPR; Linee guida Garante 15/05/2014",
+    "giorni_esposizione": null,
+    "sanzione_euro": 8000,
+    "descrizione_fatti": "Ordinanza sindacale contenente il nome e il cognome di un minore unitamente alla descrizione dei provvedimenti di tutela e affido eterofamiliare disposti dal Tribunale per i Minorenni."
+  },
+  {
+    "id_provvedimento": "provv-bologna-2020",
+    "ente": "Comune",
+    "tipo_atto": "graduatoria",
+    "dati_esposti": [
+      "nome_minore",
+      "scuola_frequentata",
+      "invalidita_genitore"
+    ],
+    "categoria_violazione": "minori",
+    "norma_violata": "art. 5 GDPR; art. 9 GDPR",
+    "giorni_esposizione": null,
+    "sanzione_euro": 10000,
+    "descrizione_fatti": "Graduatoria per il servizio di trasporto scolastico per alunni disabili con pubblicazione integrale dei nominativi degli studenti minorenni e del grado di invalidità riconosciuto."
+  },
+  {
+    "id_provvedimento": "provv-afragola-2022",
+    "ente": "Comune",
+    "tipo_atto": "ordinanza",
+    "dati_esposti": [
+      "nominativo",
+      "residenza",
+      "stato_psichico",
+      "dati_sanitari_tso"
+    ],
+    "categoria_violazione": "giudiziario",
+    "norma_violata": "art. 9 e 10 GDPR; art. 2-septies Codice privacy",
+    "giorni_esposizione": 30,
+    "sanzione_euro": 20000,
+    "descrizione_fatti": "Pubblicazione integrale dell'ordinanza sindacale per Trattamento Sanitario Obbligatorio (TSO), contenente generalità del destinatario, diagnosi psichiatrica acuta e resoconto dell'intervento congiunto della forza pubblica."
+  },
+  {
+    "id_provvedimento": "provv-conflenti-2020",
+    "ente": "Comune",
+    "tipo_atto": "ordinanza",
+    "dati_esposti": [
+      "nominativo",
+      "dati_catastali",
+      "notizia_reato",
+      "annotazioni_pg"
+    ],
+    "categoria_violazione": "giudiziario",
+    "norma_violata": "art. 10 GDPR; art. 2-octies Codice privacy",
+    "giorni_esposizione": null,
+    "sanzione_euro": 5000,
+    "descrizione_fatti": "Ordinanza di ripristino dello stato dei luoghi per violazioni urbanistico-edilizie pubblicata con menzione della denuncia penale inoltrata alla Procura della Repubblica e delle annotazioni della polizia giudiziaria."
+  },
+  {
+    "id_provvedimento": "provv-caserta-2022",
+    "ente": "Comune",
+    "tipo_atto": "altro",
+    "dati_esposti": [
+      "nominativo",
+      "vicenda_giudiziaria",
+      "esposto_querela"
+    ],
+    "categoria_violazione": "giudiziario",
+    "norma_violata": "art. 5.1.c e art. 10 GDPR",
+    "giorni_esposizione": null,
+    "sanzione_euro": 7000,
+    "descrizione_fatti": "Atto amministrativo relativo a controversie tra privati per abuso edilizio e distanze legali, con pubblicazione integrale degli estratti di querele penali pendenti e dei nominativi dei soggetti indagati."
+  },
+  {
+    "id_provvedimento": "provv-roma-2021",
+    "ente": "Comune",
+    "tipo_atto": "determina_dirigenziale",
+    "dati_esposti": [
+      "nominativo",
+      "iban",
+      "compenso_professionale"
+    ],
+    "categoria_violazione": "dati_economici",
+    "norma_violata": "art. 5.1.c GDPR; Linee guida Garante 15/05/2014",
+    "giorni_esposizione": null,
+    "sanzione_euro": 10000,
+    "descrizione_fatti": "Determina dirigenziale di liquidazione parcella a un professionista incaricato, con pubblicazione integrale sull'albo delle coordinate bancarie IBAN del conto personale del professionista, dato eccedente la finalità di pubblicità."
+  },
+  {
+    "id_provvedimento": "provv-napoli-2023",
+    "ente": "Comune",
+    "tipo_atto": "delibera",
+    "dati_esposti": [
+      "nominativo",
+      "iban",
+      "somme_pignorate"
+    ],
+    "categoria_violazione": "dati_economici",
+    "norma_violata": "art. 5 GDPR; Linee guida Garante 15/05/2014",
+    "giorni_esposizione": null,
+    "sanzione_euro": 6000,
+    "descrizione_fatti": "Delibera di presa d'atto di pignoramento presso terzi con esposizione integrale delle coordinate di conto corrente bancario e del dettaglio delle spettanze economiche trattenute a favore del creditore procedente."
+  },
+  {
+    "id_provvedimento": "provv-verona-2023",
+    "ente": "Comune",
+    "tipo_atto": "determina_dirigenziale",
+    "dati_esposti": [
+      "nominativo",
+      "iban",
+      "codice_fiscale"
+    ],
+    "categoria_violazione": "dati_economici",
+    "norma_violata": "art. 5.1.c GDPR",
+    "giorni_esposizione": null,
+    "sanzione_euro": 5000,
+    "descrizione_fatti": "Atto di liquidazione indennità e rimborsi spese con allegato prospetto contabile recante per esteso il codice fiscale e il codice IBAN personale di singoli cittadini e prestatori d'opera occasionale."
+  },
+  {
+    "id_provvedimento": "provv-taranto-2021",
+    "ente": "Comune",
+    "tipo_atto": "determina_dirigenziale",
+    "dati_esposti": [
+      "nome_dipendente",
+      "matricola",
+      "diagnosi",
+      "terapie_salvavita"
+    ],
+    "categoria_violazione": "salute",
+    "norma_violata": "art. 2-septies Codice privacy; art. 9 GDPR",
+    "giorni_esposizione": 120,
+    "sanzione_euro": 8000,
+    "descrizione_fatti": "Determina di gestione del personale con concessione di congedo straordinario retribuito a favore di un dipendente, contenente la diagnosi medica nosologica e il piano di terapie chemioterapiche e radioterapiche."
+  },
+  {
+    "id_provvedimento": "provv-messina-2021",
+    "ente": "Comune",
+    "tipo_atto": "ordinanza",
+    "dati_esposti": [
+      "nominativo",
+      "residenza",
+      "patologia_psichica",
+      "stato_salute"
+    ],
+    "categoria_violazione": "salute",
+    "norma_violata": "art. 2-septies Codice privacy; art. 9 GDPR",
+    "giorni_esposizione": null,
+    "sanzione_euro": 10000,
+    "descrizione_fatti": "Ordinanza sindacale per sgombero alloggio per motivi igienico-sanitari con descrizione dettagliata della situazione clinico-psichiatrica del nucleo familiare e menzione di sindrome da accumulo compulsivo."
+  },
+  {
+    "id_provvedimento": "provv-16-09-2021-montalbano",
+    "ente": "Comune",
+    "tipo_atto": "determina_dirigenziale",
+    "dati_esposti": [
+      "disabilita",
+      "nominativi",
+      "data e luogo di nascita",
+      "residenza",
+      "importo contributo",
+      "dettaglio lavori e fatture"
+    ],
+    "categoria_violazione": "salute",
+    "norma_violata": "art. 2-septies c.8 Codice privacy; art. 9 GDPR; art. 2-ter Codice privacy; art. 124 d.lgs. 267/2000 (15 giorni)",
+    "giorni_esposizione": null,
+    "sanzione_euro": 5000,
+    "descrizione_fatti": "Determina di liquidazione di un contributo per l'eliminazione di barriere architettoniche, consultabile nell'albo storico oltre il termine di pubblicazione: riportava anche nell'oggetto i nominativi del beneficiario e del genitore disabile a suo carico, con dati anagrafici, indirizzo dell'alloggio e dettaglio di lavori e fatture. (Provv. 16/09/2021, doc. web n. 9704069)"
+  },
+  {
+    "id_provvedimento": "ordinanza-118-2020",
+    "ente": "Comune",
+    "tipo_atto": "determina_dirigenziale",
+    "dati_esposti": [
+      "vicenda penale",
+      "riferimenti ad altri atti",
+      "dati di contesto identificativi"
+    ],
+    "categoria_violazione": "giudiziario",
+    "norma_violata": "art. 10 GDPR; art. 2-octies Codice privacy; art. 5.1.c GDPR; art. 124 d.lgs. 267/2000",
+    "giorni_esposizione": null,
+    "sanzione_euro": null,
+    "descrizione_fatti": "Determina con dati ridondanti riferiti a una vicenda giudiziaria di una persona, pubblicata anche nell'albo storico oltre i termini. Il Garante ha chiarito che non andavano riportati né dati identificativi, neppure le iniziali, né dati di contesto come gli estremi di altri atti. IMPORTO SANZIONE DA VERIFICARE nel testo dell'ordinanza n. 118 del 02/07/2020."
+  },
+  {
+    "id_provvedimento": "provv-napoli-sostegno-fitto",
+    "ente": "Comune",
+    "tipo_atto": "graduatoria",
+    "dati_esposti": [
+      "nome e cognome",
+      "codice fiscale",
+      "indirizzo",
+      "importo canone",
+      "importo erogabile",
+      "posizione in graduatoria",
+      "motivo di esclusione"
+    ],
+    "categoria_violazione": "disagio_economico",
+    "norma_violata": "art. 5.1.c GDPR; art. 2-ter Codice privacy (DA VERIFICARE nel testo del provvedimento)",
+    "giorni_esposizione": null,
+    "sanzione_euro": null,
+    "descrizione_fatti": "Graduatoria definitiva dei beneficiari di un sostegno economico per il fitto in situazioni di emergenza socio-economica, con dati di oltre 4.500 persone consultabili senza autenticazione inserendo il codice fiscale, sia per gli ammessi sia per gli esclusi con motivazione. Caso relativo a un grande Comune campano (fonte: Altalex, gennaio 2022). IMPORTO E NUMERO DOCWEB DA VERIFICARE."
+  },
+  {
+    "id_provvedimento": "provv-messina-2019",
+    "ente": "Comune",
+    "tipo_atto": "graduatoria",
+    "dati_esposti": [
+      "nome e cognome",
+      "data di nascita",
+      "codice fiscale",
+      "componenti nucleo familiare",
+      "ISEE",
+      "invalidita"
+    ],
+    "categoria_violazione": "disagio_economico",
+    "norma_violata": "art. 26 c.4 d.lgs. 33/2013; divieto di diffusione dei dati sulla salute (DA VERIFICARE nel testo)",
+    "giorni_esposizione": null,
+    "sanzione_euro": 0,
+    "descrizione_fatti": "Due graduatorie di beneficiari di aiuti economici, scaricabili dal sito, con dati di 3.447 persone da cui si ricavavano disagio economico-sociale e stato di salute. Secondo le fonti consultate si tratta di un provvedimento prescrittivo/inibitorio senza sanzione pecuniaria (DA VERIFICARE)."
+  },
+  {
+    "id_provvedimento": "provv-ordinanze-sgombero-2021",
+    "ente": "Comune",
+    "tipo_atto": "ordinanza",
+    "dati_esposti": [
+      "codice fiscale",
+      "data e luogo di nascita",
+      "residenza",
+      "dati dei familiari",
+      "ingiunzione di pagamento"
+    ],
+    "categoria_violazione": "altro",
+    "norma_violata": "art. 2-ter c.1 e 3 Codice privacy; art. 5.1.a e c GDPR; art. 6 GDPR; art. 124 c.1 d.lgs. 267/2000",
+    "giorni_esposizione": null,
+    "sanzione_euro": null,
+    "descrizione_fatti": "Ordinanze sindacali di rimozione e sgombero e di ingiunzione di pagamento con dati anagrafici, codice fiscale e residenza del soggetto obbligato e dei familiari, rimaste online oltre i quindici giorni previsti. IMPORTO E DOCWEB DA VERIFICARE (fonte: santofabiano.it, aprile 2021)."
+  },
+  {
+    "id_provvedimento": "provv-17-10-2024-sindacale",
+    "ente": "Comune",
+    "tipo_atto": "delibera",
+    "dati_esposti": [
+      "informazioni sul rapporto di lavoro",
+      "appartenenza sindacale"
+    ],
+    "categoria_violazione": "altro",
+    "norma_violata": "diffusione senza idonea base giuridica (art. 2-ter Codice privacy); categoria particolare art. 9 GDPR (articoli esatti DA VERIFICARE)",
+    "giorni_esposizione": null,
+    "sanzione_euro": 8000,
+    "descrizione_fatti": "Delibere pubblicate sul sito istituzionale con informazioni sul rapporto di lavoro di un dipendente, inclusa l'appartenenza sindacale. Gravità valutata media: un solo interessato, nessuna indicizzazione, Comune convinto di adempiere a un obbligo nel contesto dell'emergenza Covid."
+  },
+  {
+    "id_provvedimento": "provv-06-06-2024-ustica",
+    "ente": "Comune",
+    "tipo_atto": "determina_dirigenziale",
+    "dati_esposti": [
+      "dati relativi alla salute",
+      "nominativi"
+    ],
+    "categoria_violazione": "salute",
+    "norma_violata": "art. 2-septies c.8 Codice privacy; art. 9 GDPR; art. 124 c.1 d.lgs. 267/2000",
+    "giorni_esposizione": null,
+    "sanzione_euro": null,
+    "descrizione_fatti": "Più determinazioni consultabili e scaricabili dall'area 'storico atti' dell'albo pretorio, contenenti dati personali anche relativi alla salute. IMPORTO DA VERIFICARE (doc. web n. 10032683)."
+  }
+]
