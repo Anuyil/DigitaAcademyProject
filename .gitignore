@@ -1,1 +1,26 @@
-CLaude
+# Ambiente
+.env
+.venv/
+
+# Database e dati runtime (ricreati automaticamente)
+#data/albo_sicuro.db
+#data/albo_sicuro.db-wal
+#data/albo_sicuro.db-shm
+#data/last_check.txt
+#data/llm_cache.json
+
+# PDF scaricati e redatti (non committare mai dati di persone)
+#data/albo_fake/pdf/
+#data/albo_fake/atti.json
+#data/corrected/
+#data/uploads/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.DS_Store
+
+# IDE
+.vscode/
+.idea/

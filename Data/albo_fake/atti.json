@@ -1,0 +1,30 @@
+[
+  {
+    "id_atto_albo": "001",
+    "titolo": "Graduatoria Concorso 01",
+    "tipo_atto": "graduatoria",
+    "url_pdf": "http://localhost:8001/albo_fake/001_graduatoria_concorso_01.pdf",
+    "data_pubblicazione": "2026-09-18"
+  },
+  {
+    "id_atto_albo": "002",
+    "titolo": "Determina Contributo Salute 03",
+    "tipo_atto": "determina_dirigenziale",
+    "url_pdf": "http://localhost:8001/albo_fake/002_determina_contributo_salute_03.pdf",
+    "data_pubblicazione": "2026-09-18"
+  },
+  {
+    "id_atto_albo": "003",
+    "titolo": "Determina Sussidio Disagio 04",
+    "tipo_atto": "determina_dirigenziale",
+    "url_pdf": "http://localhost:8001/albo_fake/003_determina_sussidio_disagio_04.pdf",
+    "data_pubblicazione": "2026-09-18"
+  },
+  {
+    "id_atto_albo": "004",
+    "titolo": "Atto Vicenda Giudiziaria 07",
+    "tipo_atto": "ordinanza",
+    "url_pdf": "http://localhost:8001/albo_fake/004_atto_vicenda_giudiziaria_07.pdf",
+    "data_pubblicazione": "2026-09-18"
+  }
+]
