@@ -1,89 +1,5 @@
 [
   {
-    "file": "graduatoria_concorso_01.pdf",
-    "conforme": true,
-    "categoria_violazione": null,
-    "tipo_atto": "graduatoria",
-    "id_provvedimento_origine": null,
-    "passaggi_problematici": []
-  },
-  {
-    "file": "delibera_bilancio_02.pdf",
-    "conforme": true,
-    "categoria_violazione": null,
-    "tipo_atto": "delibera",
-    "id_provvedimento_origine": null,
-    "passaggi_problematici": []
-  },
-  {
-    "file": "determina_contributo_salute_03.pdf",
-    "conforme": false,
-    "categoria_violazione": "salute",
-    "tipo_atto": "determina_dirigenziale",
-    "id_provvedimento_origine": "provv-monteiasi-2022",
-    "passaggi_problematici": [
-      "affetto da grave patologia oncologica invalidante al 100% con necessità di assistenza continua",
-      "disabilità gravissima ex art. 3 c. 3 L. 104/1992",
-      "stante lo stato accertato di disabilità gravissima e patologia cronica non autosufficiente"
-    ]
-  },
-  {
-    "file": "determina_sussidio_disagio_04.pdf",
-    "conforme": false,
-    "categoria_violazione": "disagio_economico",
-    "tipo_atto": "determina_dirigenziale",
-    "id_provvedimento_origine": "provv-tricase-2021",
-    "passaggi_problematici": [
-      "sostegno economico straordinario a favore di nuclei familiari in condizione di povertà estrema",
-      "attestazione ISEE pari a euro 1.450,00 annui e stato di disoccupazione involontaria",
-      "erogazione del sussidio economico di euro 800,00 per morosità incolpevole e disagio abitativo"
-    ]
-  },
-  {
-    "file": "ordinanza_minore_affido_05.pdf",
-    "conforme": false,
-    "categoria_violazione": "minori",
-    "tipo_atto": "ordinanza",
-    "id_provvedimento_origine": "provv-commezzadura-2022",
-    "passaggi_problematici": [
-      "in favore del minore Bianchi Leonardo nato a Napoli il 14/05/2016",
-      "disposto l'affidamento eterofamiliare temporaneo del minore con collocamento residenziale protetto",
-      "prescrizioni del Tribunale per i Minorenni relative alla tutela educativa del minore Bianchi Leonardo"
-    ]
-  },
-  {
-    "file": "determina_iban_eccedente_06.pdf",
-    "conforme": false,
-    "categoria_violazione": "dati_economici",
-    "tipo_atto": "determina_dirigenziale",
-    "id_provvedimento_origine": "provv-roma-2021",
-    "passaggi_problematici": [
-      "accredito sul conto corrente personale intestato all'Avv. Esposito Marco presso Banca Intesa",
-      "coordinate bancarie IBAN IT60X0542811101000000123456",
-      "liquidazione della parcella professionale al Codice Fiscale SPSMRC78A15F839T"
-    ]
-  },
-  {
-    "file": "atto_vicenda_giudiziaria_07.pdf",
-    "conforme": false,
-    "categoria_violazione": "giudiziario",
-    "tipo_atto": "ordinanza",
-    "id_provvedimento_origine": "provv-conflenti-2020",
-    "passaggi_problematici": [
-      "notizia di reato inoltrata alla Procura della Repubblica presso il Tribunale di Napoli",
-      "violazioni penali di cui all'art. 44 lett. b del D.P.R. 380/2001 contestate a carico del trasgressore",
-      "verbale di sequestro probatorio redatto dalla Polizia Giudiziaria per abuso edilizio continuato"
-    ]
-  },
-  {
-    "file": "ordinanza_viabilita_08.pdf",
-    "conforme": true,
-    "categoria_violazione": null,
-    "tipo_atto": "ordinanza",
-    "id_provvedimento_origine": null,
-    "passaggi_problematici": []
-  },
-  {
     "file": "01_determina_spese_legali_salute_iban.pdf",
     "conforme": false,
     "categoria_violazione": "salute",
@@ -149,5 +65,37 @@
       "per irregolarità nella tenuta del registro di cassa",
       "procedimento disciplinare prot. n. 11204/2026"
     ]
+  },
+  {
+    "file": "allegato1789634348.pdf",
+    "conforme": true,
+    "categoria_violazione": null,
+    "tipo_atto": "determina_dirigenziale",
+    "id_provvedimento_origine": null,
+    "passaggi_problematici": []
+  },
+  {
+    "file": "allegato1789648476.pdf",
+    "conforme": true,
+    "categoria_violazione": null,
+    "tipo_atto": "determina_dirigenziale",
+    "id_provvedimento_origine": null,
+    "passaggi_problematici": []
+  },
+  {
+    "file": "allegato1789717273.pdf",
+    "conforme": true,
+    "categoria_violazione": null,
+    "tipo_atto": "altro",
+    "id_provvedimento_origine": null,
+    "passaggi_problematici": []
+  },
+  {
+    "file": "allegato1789717263.pdf",
+    "conforme": true,
+    "categoria_violazione": null,
+    "tipo_atto": "altro",
+    "id_provvedimento_origine": null,
+    "passaggi_problematici": []
   }
 ]
